@@ -1,4 +1,4 @@
-# <center style='text-align:center'><img style='margin: 0 auto;' src='./JS.jpg' width='80'/></center>
+# <p align='center'><img src='./JS.jpg' width='80'/></p>
 
 <ol>
   <li><a href='./js/shuffle.js'>字符串乱序</a></li>
