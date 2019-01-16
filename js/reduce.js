@@ -3,7 +3,7 @@ Array.prototype.fakeReduce = function fakeReduce(fn, base) {
   let initialArr = this;
   let arr = initialArr.concat();
   let index, newValue;
-	if (base) arr.unshift(base);
+  if (base) arr.unshift(base);
   while (arr.length > 1) {
     index = initialArr.length - arr.length + 1;
     newValue = fn.call(null, arr[0], arr[1], index, initialArr);
