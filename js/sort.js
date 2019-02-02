@@ -1,22 +1,23 @@
 /**
- * @name sort
+ * @name sort.js
  * @author amigo
  * @description some sort realization result
  * 2019-01-21
  */
 //生成随机数
-function randomNum(n) {
-  const arr = []
+function randomNum(n, num) {
+  const arr = [],
+    t = num || n
   for (let i = 0; i < n; i++) {
-    arr.push(Math.floor(Math.random() * n))
+    arr.push(Math.floor(Math.random() * t))
   }
   return arr
 }
 //Time test
 function timeTest(fn, arr, ...values) {
-  console.time(fn.name)
+  console.time(`${fn.name}_${arr.length}`)
   const result = fn(arr, ...values)
-  console.timeEnd(fn.name)
+  console.timeEnd(`${fn.name}_${arr.length}`)
   return result
 }
 //原生数组排序方法
@@ -89,11 +90,11 @@ function selectSort(arr) {
 timeTest(selectSort, randomNum(10000))
 
 //插入排序
-function insertSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
+function insertSort(arr, l = 0, r = arr.length - 1) {
+  for (let i = 1 + l; i < r; i++) {
     let temp = arr[i],
       j = i
-    while (j > 0 && temp < arr[j - 1]) {
+    while (j > 0 + l && temp < arr[j - 1]) {
       //如果后一个比前一个小，前面的整体后移，跳出循环后插入
       arr[j] = arr[j - 1]
       j--
@@ -106,11 +107,12 @@ timeTest(insertSort, randomNum(10000))
 
 //递归插入排序
 function recurInsertSort(arr) {
-  let orr = []
-  while (arr.length !== 0) {
-    const i = arr.length > 30 ? 2 : 1
-    var stop = Math.ceil(arr.length / i),
-      sortArr = arr.splice(0, stop)
+  let orr = [],
+    brr = [].concat(arr)
+  while (brr.length !== 0) {
+    const i = brr.length > 30 ? 2 : 1
+    var stop = Math.ceil(brr.length / i),
+      sortArr = brr.splice(0, stop)
     if (sortArr.length < 32) {
       orr.push(...insertSort(sortArr))
     } else {
@@ -144,13 +146,17 @@ function shellSort(arr) {
 timeTest(shellSort, randomNum(100000))
 
 //归并排序  赋值法
-function mergeSort(arr, l = 0, r = (arr.length - 1)) {
-  var mid = Math.floor((l + r) / 2)
-  if (l >= r) return
+function mergeSort(arr, l = 0, r = arr.length - 1) {
   // 对于小规模数组, 使用插入排序
+  if (r - l <= 15) {
+    return insertSort(arr, l, r)
+  }
+  var mid = Math.floor((l + r) / 2)
   mergeSort(arr, l, mid)
   mergeSort(arr, mid + 1, r)
-  return merge(arr, l, mid, r)
+  if (arr[mid] > arr[mid + 1]) {
+    return merge(arr, l, mid, r)
+  }
 }
 
 function merge(arr, left, mid, right) {
@@ -184,49 +190,51 @@ timeTest(mergeSort, randomNum(100000))
 function mergeSortSlice(arr) {
   if (arr.length == 1) {
     return arr
-  };
-  var mid = Math.floor(arr.length / 2);
+  }
+  var mid = Math.floor(arr.length / 2)
   var left_arr = arr.slice(0, mid),
-    right_arr = arr.slice(mid);
-  return mergeSlice(mergeSortSlice(left_arr), mergeSortSlice(right_arr));
+    right_arr = arr.slice(mid)
+  return mergeSlice(mergeSortSlice(left_arr), mergeSortSlice(right_arr))
 }
 
 function mergeSlice(left, right) {
-  var result = [];
+  var result = []
   while (left.length > 0 && right.length > 0) {
     if (left[0] < right[0]) {
-      result.push(left.shift());
+      result.push(left.shift())
     } else {
-      result.push(right.shift());
+      result.push(right.shift())
     }
   }
   /* 当左右数组长度不等.将比较完后剩下的数组项链接起来即可 */
-  return result.concat(left).concat(right);
+  return result.concat(left).concat(right)
 }
 
 timeTest(mergeSortSlice, randomNum(100000))
 
 //快速排序
-function quickSort(arr, l = 0, r = (arr.length - 1)) {
-  if (l < r) {
-    let partitionIndex = partition2way(arr, l, r)
-    quickSort(arr, l, partitionIndex - 1)
-    quickSort(arr, partitionIndex + 1, r)
-    return arr
+function quickSort(arr, l = 0, r = arr.length - 1) {
+  if (r - l <= 15) {
+    return insertSort(arr, l, r)
   }
+  let partitionIndex = partition2(arr, l, r)
+  quickSort(arr, l, partitionIndex - 1)
+  quickSort(arr, partitionIndex + 1, r)
+  return arr
 }
 
 function partition(arr, l, r) {
-  let pivot = l,
-    index = pivot + 1
-  for (let i = index; i <= r; i++) {
-    if (arr[i] < arr[pivot]) {
-      swap(arr, i, index)
-      index++
+  let randomIndex = Math.ceil(Math.random() * (r - l) + l)
+  swap(arr, l, randomIndex)
+  let v = arr[l],
+    j = l
+  for (let i = l + 1; i <= r; i++) {
+    if (arr[i] < v) {
+      swap(arr, ++j, i)
     }
   }
-  swap(arr, pivot, index - 1)
-  return index - 1
+  swap(arr, l, j)
+  return j
 }
 
 function swap(arr, i, j) {
@@ -235,20 +243,48 @@ function swap(arr, i, j) {
   arr[j] = temp
 }
 
-var arr = timeTest(quickSort, randomNum(100000))
-
-function partition2way(arr, l, r) {
-  let pivot = arr[l]
-  while (l < r) {
-    while (l < r && arr[r] > pivot) {
-      --r
-    }
-    arr[l] = arr[r]
-    while (l < r && arr[l] <= pivot) {
-      ++l
-    }
-    arr[r] = arr[l]
+function partition2(arr, l, r) {
+  let randomIndex = Math.ceil(Math.random() * (r - l) + l)
+  swap(arr, l, randomIndex)
+  let v = arr[l],
+    i = l + 1,
+    j = r
+  while (true) {
+    while (i <= r && arr[i] < v) i++
+    while (j >= l + 1 && arr[j] > v) j--
+    if (i > j) break;
+    swap(arr, i, j)
+    i++
+    j--
   }
-  arr[l] = pivot
-  return l
+  swap(arr, l, j)
+  return j
 }
+timeTest(quickSort, randomNum(1000000))
+
+function quickSort3Ways(arr, l = 0, r = arr.length - 1) {
+  if (r - l <= 15) {
+    return insertSort(arr, l, r)
+  }
+  let randomIndex = Math.ceil(Math.random() * (r - l) + l)
+  swap(arr, l, randomIndex)
+  let v = arr[l],
+    lt = l, //arr[l+1,...lt]
+    gt = r + 1, // arr[gt,...r]
+    i = l + 1 // arr[lt+1,...i]
+  while (i < gt) {
+    if (arr[i] < v) {
+      swap(arr, i, ++lt)
+      i++
+    } else if (arr[i] > v) {
+      swap(arr, i, --gt)
+    } else {
+      i++
+    }
+  }
+  swap(arr, l, lt)
+  quickSort3Ways(arr, l, lt - 1)
+  quickSort3Ways(arr, gt, r)
+  return arr
+}
+var arr = timeTest(quickSort3Ways, randomNum(1000000, 10))
