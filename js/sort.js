@@ -252,7 +252,7 @@ function partition2(arr, l, r) {
   while (true) {
     while (i <= r && arr[i] < v) i++
     while (j >= l + 1 && arr[j] > v) j--
-    if (i > j) break;
+    if (i > j) break
     swap(arr, i, j)
     i++
     j--
@@ -262,6 +262,7 @@ function partition2(arr, l, r) {
 }
 timeTest(quickSort, randomNum(1000000))
 
+//三路快排
 function quickSort3Ways(arr, l = 0, r = arr.length - 1) {
   if (r - l <= 15) {
     return insertSort(arr, l, r)
@@ -287,4 +288,39 @@ function quickSort3Ways(arr, l = 0, r = arr.length - 1) {
   quickSort3Ways(arr, gt, r)
   return arr
 }
-var arr = timeTest(quickSort3Ways, randomNum(1000000, 10))
+timeTest(quickSort3Ways, randomNum(1000000, 10))
+
+//堆排序
+function heapSort(arr) {
+  let len = arr.length
+  buildMaxHeap(arr)
+  for (let i = len - 1; i > 0; i--) {
+    swap(arr, 0, i)
+    heapify(arr, 0, --len)
+  }
+  return arr
+}
+//建立大顶堆
+function buildMaxHeap(arr) {
+  for (let i = Math.floor(arr.length / 2); i >= 0; i--) {
+    heapify(arr, i)
+  }
+}
+//堆调整
+function heapify(arr, i, len = arr.length) {
+  let l = 2 * i + 1,
+    r = 2 * i + 2,
+    max = i
+  if (l < len && arr[l] > arr[max]) {
+    max = l
+  }
+  if (r < len && arr[r] > arr[max]) {
+    max = r
+  }
+  if (max != i) {
+    swap(arr, i, max)
+    heapify(arr, max, len)
+  }
+}
+
+timeTest(heapSort, randomNum(1000000, 10))
