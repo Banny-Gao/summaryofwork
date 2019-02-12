@@ -5,4 +5,5 @@
   <li><a href='./js/reduce.js'>数组reduce实现</a></li>
   <li><a href='./js/twoSum.js'>两数和求下标</a></li>
   <li><a href='./js/sort.js'>十大经典排序</a></li>
+  <li><a href='./js/maxHeap.js'>大顶堆实现</a></li>
 <ol>
