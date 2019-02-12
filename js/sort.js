@@ -324,3 +324,73 @@ function heapify(arr, i, len = arr.length) {
 }
 
 timeTest(heapSort, randomNum(1000000, 10))
+
+// 计数排序
+function countSort(arr) {
+  let maxValue = arr[0],
+    i = 1
+  while (i < arr.length) {
+    if (maxValue < arr[i]) {
+      maxValue = arr[i]
+    }
+    i++
+  }
+  // 根据最大数新建数组，原数组的值作为下标，个数作为值
+  let bucket = new Array(maxValue + 1),
+    sortIndex = 0,
+    len = arr.length,
+    bucketLen = maxValue + 1
+  for (let j = 0; j < len; j++) {
+    if (!bucket[arr[j]]) {
+      bucket[arr[j]] = 0
+    }
+    bucket[arr[j]]++ //计数
+  }
+  for (let n = 0; n < bucketLen; n++) {
+    while (bucket[n] > 0) {
+      //取出排序
+      arr[sortIndex++] = n
+      bucket[n]--
+    }
+  }
+  return arr
+}
+
+timeTest(countSort, randomNum(100000))
+
+//桶排序  适用于近乎有序的数组
+function bucketSort(arr, l = 0, r = arr.length - 1, bucketSize = 15) {
+  if (r - l <= 15) return insertSort(arr, l, r)
+  let i,
+    min = arr[l],
+    max = arr[l + 1]
+  for (i = l; i < r; i++) {
+    if (arr[i] < min) {
+      min = arr[i]
+    } else if (arr[i] > max) {
+      max = arr[i]
+    }
+  }
+  //初始化桶
+  let bucketCount = Math.floor((max - min) / bucketSize) + 1, //桶的个数
+    buckets = new Array(bucketCount)
+  for (let i = 0; i < bucketCount; i++) {
+    buckets[i] = []
+  }
+  //根据映射分配
+  for (let j = l; j < r; j++) {
+    let m = Math.floor((arr[j] - min) / bucketSize)
+    buckets[m].push(arr[j])
+  }
+  // 对每个桶再进行桶排序
+  i = 0
+  return buckets.reduce((result, bucketItem) => {
+    insertSort(bucketItem, 0, bucketItem.length).forEach(item => {
+      result[i] = item
+      i++
+    })
+    return result
+  }, [])
+}
+
+var arr = timeTest(bucketSort, randomNum(100000))
