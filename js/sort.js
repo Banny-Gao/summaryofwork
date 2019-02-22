@@ -4,6 +4,7 @@
  * @description some sort realization result
  * 2019-01-21
  */
+
 //生成随机数
 function randomNum(n, num) {
   const arr = [],
@@ -373,10 +374,7 @@ function bucketSort(arr, l = 0, r = arr.length - 1, bucketSize = 15) {
   }
   //初始化桶
   let bucketCount = Math.floor((max - min) / bucketSize) + 1, //桶的个数
-    buckets = new Array(bucketCount)
-  for (let i = 0; i < bucketCount; i++) {
-    buckets[i] = []
-  }
+    buckets = buildBucket(bucketCount)
   //根据映射分配
   for (let j = l; j < r; j++) {
     let m = Math.floor((arr[j] - min) / bucketSize)
@@ -393,4 +391,33 @@ function bucketSort(arr, l = 0, r = arr.length - 1, bucketSize = 15) {
   }, [])
 }
 
-var arr = timeTest(bucketSort, randomNum(100000))
+function buildBucket(n) {
+  let buckets = []
+  for (let i = 0; i < n; i++) {
+    buckets[i] = []
+  }
+  return buckets
+}
+timeTest(bucketSort, randomNum(1000))
+
+//LSD 基数排序
+function radixSort(arr) {
+  let maxNum = arr[0],
+    mod = 10,
+    dev = 1
+  arr.forEach(v => {
+    if (v > maxNum) maxNum = v
+  })
+  const maxDight = String(maxNum).length
+  for (let i = 0; i < maxDight; i++, mod *= 10, dev *= 10) {
+    const buckets = []
+    for (let j = 0; j < arr.length; j++) {
+      const index = parseInt((arr[j] % mod) / dev)
+      if (!Array.isArray(buckets[index])) buckets[index] = []
+      buckets[index].push(arr[j])
+    }
+    arr = buckets.reduce((r, v) => [...r, ...v], [])
+  }
+  return arr
+}
+var arr = timeTest(radixSort, randomNum(1000))
