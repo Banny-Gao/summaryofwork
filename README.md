@@ -6,5 +6,5 @@
   <li><a href='./js/twoSum.js'>两数和求下标</a></li>
   <li><a href='./js/sort.js'>十大经典排序</a></li>
   <li><a href='./js/maxHeap.js'>大顶堆实现</a></li>
-  <li><a href='./js/parseInt.js'>['1','2','3'].map(parseInt) ?</a></li>
+  <li><a href='./js/parseInt.js'>parseInt ?</a></li>
 <ol>
