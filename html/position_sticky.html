@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      color: #fff;
+      line-height: 50px;
+      font-size: 16px;
+      font-family: '微软雅黑';
+    }
+
+    .header {
+      text-align: center;
+      height: 50px;
+      background: linear-gradient(to right, lightsalmon, hotpink);
+    }
+
+    .footer {
+      text-align: center;
+      height: 50px;
+      background: linear-gradient(to bottom, skyblue, deepskyblue);
+      box-shadow: 0 0 4px 4px #ccc;
+    }
+
+    .wraper1 {
+      height: 200px;
+      overflow: scroll;
+    }
+
+    .wraper2 {
+      flex: 1;
+      overflow: scroll;
+    }
+
+    .sticky1 {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+
+    .sticky2 {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 30px;
+    }
+
+    li {
+      height: 30px;
+    }
+
+    li.sticky1:nth-child(2n) {
+      background: lightgreen;
+    }
+
+    li.sticky2:nth-child(2n) {
+      background: seagreen;
+    }
+
+    .more_content {
+      height: 200px;
+      background: salmon;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header title">Header</div>
+    <div class="wraper1">
+      <ul>
+
+      </ul>
+      <div class="title more_content">当父级滚出其父级可视区,Ticky要随父级滚出屏幕</div>
+    </div>
+    <div class="wraper2">
+      <ul>
+      </ul>
+    </div>
+    <div class="footer title">Footer</div>
+  </div>
+</body>
+
+</html>
+<script>
+  function setLi(num, parent, classProp) {
+    let content = ''
+    for (let i = 0; i < num; i++) {
+      const even = i % 2 !== 0
+      const className = even ? classProp : ''
+      content += `<li class='${className}'>${i+1}</li>`
+    }
+    document.querySelector(parent).innerHTML = content;
+  }
+
+  setLi(50, '.wraper2 ul', 'sticky1')
+  setLi(20, '.wraper1 ul', 'sticky2')
+</script>

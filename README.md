@@ -6,5 +6,6 @@
   <li><a href='./js/twoSum.js'>两数和求下标</a></li>
   <li><a href='./js/sort.js'>十大经典排序</a></li>
   <li><a href='./js/maxHeap.js'>大顶堆实现</a></li>
-  <li><a href='./js/parseInt.js'>parseInt ?</a></li>
+  <li><a href='./js/parseInt.js'>parseInt深入调研</a></li>
+  <li><a href='./html/position_sticky.html'>position: sticky ?</a></li>
 <ol>
