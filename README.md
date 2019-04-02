@@ -8,4 +8,5 @@
   <li><a href='./js/maxHeap.js'>大顶堆实现</a></li>
   <li><a href='./js/parseInt.js'>parseInt深入调研</a></li>
   <li><a href='./html/position_sticky.html'>position: sticky ?</a></li>
+  <li><a href='./js/promiseReal.js'>promise实现原理</a></li>
 <ol>
