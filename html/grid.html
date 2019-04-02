@@ -12,15 +12,106 @@
       padding: 0;
     }
 
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
     .container {
+      height: 100%;
       display: grid;
+      /* 竖向分割 fr表示所占自由空间份数 */
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      /* 横向分割 */
+      grid-template-rows: 80px auto 80px;
+      /* grid-template-columns: [percent20]20% [percent20]20% auto; */
+      /* 命名与重复  等价于下面 */
+      /* grid-template-columns: repeat(2, [percent20] 20%) auto; */
+      /* grid-template-areas可以配合grid-area定义一个显式的网格区域 */
+      grid-template-areas:
+        'header header header header'
+        'left content content right'
+        'footer footer footer footer';
+      grid-column-gap: 10px;
+      grid-row-gap: 15px;
+      /* 子项和行轴对齐 默认stretch*/
+      align-items: stretch;
+      /* 子项和列轴对齐  默认stretch*/
+      justify-items: stretch;
+      /* 网格项排列方式 row | column | row dense | column dense */
+      /* grid-auto-flow: row; */
+    }
+
+    .item {
+      background: salmon;
+    }
+
+
+    .header {
+      grid-area: header;
+      background: skyblue;
+    }
+
+    .left {
+      grid-area: left;
+    }
+
+    .right {
+      grid-area: right;
+      background-color: indianred;
+    }
+
+    .content {
+      grid-area: content;
+      background-color: aqua;
+      display: grid;
+      grid-template: 1fr 1fr / 30px 60px;
+    }
+
+    .content .item-a {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      background: rebeccapurple;
+    }
+
+    .content .item-b {
+      grid-column: 4/4;
+      grid-row: 2/2;
+      background: chocolate;
+    }
+
+    .content .item-c {
+      grid-column: 2/3;
+      grid-row: 2/2;
+      background: seashell;
+    }
+
+    .content .item-d {
+      grid-column: 3/3;
+      grid-row: 1/2;
+      background: darkgreen;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: deepskyblue;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="item"></div>
+    <div class="item header">header</div>
+    <div class="item left">left</div>
+    <div class="item content">
+      <div class="item-a">a</div>
+      <div class="item-b">b</div>
+      <div class="item-c">c</div>
+      <div class="item-d">d</div>
+    </div>
+    <div class="item right">right</div>
+    <div class="item footer">footer</div>
   </div>
 </body>
 
