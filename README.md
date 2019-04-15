@@ -8,6 +8,10 @@
   <li><a href='./js/maxHeap.js'>大顶堆实现</a></li>
   <li><a href='./js/parseInt.js'>parseInt深入调研</a></li>
   <li><a href='./html/position_sticky.html'>position: sticky ?</a></li>
-  <li><a href='./js/promiseReal.js'>promise实现原理</a></li>
+  <li><a href='./js/promiseReal.js'>promise实现</a></li>
   <li><a href='./html/grid.html'>Grid布局小试</a></li>
+  <li><a href='./js/deepClone.js'>简单走一波深拷贝</a></li>
+  <li><a href='./js/async&await.js'>async&await实现</a></li>
+  <li><a href='./js/curry.js'>Js函数柯里化</a></li>
+  <li><a href='./js/call&bind.js'>call&bind实现</a></li>
 <ol>

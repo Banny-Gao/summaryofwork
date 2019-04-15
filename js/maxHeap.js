@@ -4,6 +4,9 @@
  *   
  */
 
+import {
+  randomNum
+} from './sort'
 //实现一个最大堆
 class MaxHeap {
   constructor(len) {

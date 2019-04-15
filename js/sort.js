@@ -6,7 +6,7 @@
  */
 
 //生成随机数
-function randomNum(n, num) {
+export function randomNum(n, num) {
   const arr = [],
     t = num || n
   for (let i = 0; i < n; i++) {
@@ -412,7 +412,7 @@ function radixSort(arr) {
   for (let i = 0; i < maxDight; i++, mod *= 10, dev *= 10) {
     const buckets = []
     for (let j = 0; j < arr.length; j++) {
-      const index = parseInt((arr[j] % mod) / dev)
+      const index = ~~((arr[j] % mod) / dev)
       if (!Array.isArray(buckets[index])) buckets[index] = []
       buckets[index].push(arr[j])
     }
