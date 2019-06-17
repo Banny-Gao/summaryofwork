@@ -14,4 +14,5 @@
   <li><a href='./js/async&await.js'>async&await实现</a></li>
   <li><a href='./js/curry.js'>Js函数柯里化</a></li>
   <li><a href='./js/call&bind.js'>call&bind实现</a></li>
+  <li><a href='./js/debounce&throttle.js'>Debounce&Throttle</a></li>
 <ol>
