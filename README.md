@@ -15,3 +15,8 @@
 ##### [13.call&bind实现](./js/call&bind.js)
 ##### [14.Debounce&Throttle](./js/debounce&throttle.js)
 ##### [15.深度优先还是广度优先？](./js/DFS&BFS.js)
+##### [16.运算与隐式转换了解一下？](./js/operate&implicitCast.js)
+
+### 常见问题
+* 写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么？  
+> key是给每一个vnode的唯一id,可以依靠key,更准确, 更快的拿到oldVnode中对应的vnode节点。
