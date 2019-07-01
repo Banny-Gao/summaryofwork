@@ -1,7 +1,5 @@
-# Facing Smart
 
-[TOC]
-
+# Facing Smart  
 ### Question
 > [1.字符串乱序](./js/shuffle.js)  
 > [2.数组reduce实现](./js/reduce.js)  
@@ -19,7 +17,11 @@
 > [14.Debounce&Throttle](./js/debounce&throttle.js)  
 > [15.深度优先还是广度优先？](./js/DFS&BFS.js)  
 > [16.运算与隐式转换了解一下？](./js/operate&implicitCast.js)  
-> [17.异步与同步](./js/eventLoop.js)  
+> [17.异步与同步终结](./js/eventLoop.js)  
+> [18.JavaScript词法环境](./doc/lexicalEnvironment.md)  
+> [19.Js运行机制与执行上下文](./doc/executionContext.md)  
+> [20.垃圾回收与内存泄漏](./js/eventLoop.js)  
+> [21.手写eval和with](./js/eventLoop.js)  
 
 ### Solution
 
