@@ -20,7 +20,7 @@
 > [17.异步与同步终结](./js/eventLoop.js)  
 > [18.JavaScript词法环境](./doc/lexicalEnvironment.md)  
 > [19.Js运行机制与执行上下文](./doc/executionContext.md)  
-> [20.垃圾回收与内存泄漏](./js/eventLoop.js)  
+> [20.垃圾回收与内存泄漏](./doc/garbageCollection.md)  
 > [21.手写eval和with](./js/eventLoop.js)  
 
 ### Solution
