@@ -21,7 +21,7 @@
 > [18.JavaScript词法环境](./doc/lexicalEnvironment.md)  
 > [19.Js运行机制与执行上下文](./doc/executionContext.md)  
 > [20.垃圾回收与内存泄漏](./doc/garbageCollection.md)  
-> [21.手写eval和with](./js/eventLoop.js)  
+> [21.手写eval](#手写Eval)  
 
 ### Solution
 
@@ -47,3 +47,14 @@
 > 4) class 的所有方法（包括静态方法和实例方法）都没有原型对象 prototype，所以也没有[[construct]]，不能使用 new 来调用。
 > 5) 必须使用 new 调用 class。
 > 6) class 内部无法重写类名
+
+#### 手写Eval
+Function 构造函数 创建一个新的Function对象。 在 JavaScript 中, 每个函数实际上都是一个Function对象。
+  > new Function ([arg1[, arg2[, ...argN]],] functionBody)
+```JavaScript
+function cEval(exp) {
+  return new Function('return '+ exp).call(this)
+}
+const str = '1+1'
+cEval(str)
+```

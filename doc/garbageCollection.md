@@ -137,13 +137,13 @@ function removeButton() {
 * 左上角小圆点开始录制(record)
 * 停止录制
 
-![内存泄漏](../image/memory_leak.webp)
+![内存泄漏](../image/memory_leak.webp.jpg)
 图中 Heap 对应的部分就可以看到内存在周期性的回落也可以看到垃圾回收的周期,如果垃圾回收之后的最低值(我们称为min),min在不断上涨,那么肯定是有较为严重的内存泄漏问题。
 
 ## 六、垃圾回收算法了解一下
 
 ### 分代式垃圾回收（V8主要策略）
-![分代式](../image/fendai_garbage.webp)  
+![分代式](../image/fendai_garbage.webp.jpg)  
 
 ### Scavenge算法
   * Scavenge算法通过牺牲空间换时间的算法非常适合生命周期短的新生代
