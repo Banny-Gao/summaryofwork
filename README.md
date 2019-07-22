@@ -22,6 +22,7 @@
 > [19.Js运行机制与执行上下文](./doc/executionContext.md)  
 > [20.垃圾回收与内存泄漏](./doc/garbageCollection.md)  
 > [21.手写eval](#手写Eval)  
+> [22.算法之二分查找](./js/binarySearch.js)  
 
 ### Solution
 
