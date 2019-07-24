@@ -142,7 +142,6 @@ const testBSTSearch = () => {
   fetch('../txt/bible.txt')
   .then(response => response.text())
   .then(text => {
-    window.text = text
     console.log(`圣经总字数:${text.length}`)
     const wordsArr = text.split(/[\.|\s|,]/)
     // 词频统计
