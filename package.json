@@ -1,0 +1,32 @@
+{
+  "name": "summaryofwork",
+  "version": "0.0.1",
+  "description": "work space of question and solution",
+  "author": "Amigo",
+  "repository": "https://github.com/xinandiyishuai/SummaryOfWork",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "deploy.bat"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "vuepress": "^0.14.5"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.3.13",
+    "iview": "^3.5.1",
+    "markdown-it": "^8.4.1",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-katex": "^2.0.3",
+    "node-emoji": "^1.10.0",
+    "simple-web-worker": "^1.2.0",
+    "vue-codemirror": "^4.0.6"
+  }
+}

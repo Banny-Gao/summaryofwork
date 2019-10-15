@@ -1,0 +1,89 @@
+// showing default values
+// colors
+$accentColor = #3eaf7c
+$textColor = #2c3e50
+$borderColor = #eaecef
+$codeBgColor = #282c34
+$arrowBgColor = #ccc
+
+// layout
+$navbarHeight = 3.6rem
+$sidebarWidth = 18rem
+$contentWidth = 75%
+
+// responsive breakpoints
+$MQNarrow = 959px
+$MQMobile = 719px
+$MQMobileNarrow = 419px
+
+.sidebar-heading{
+  font-size:1.4em;
+}
+.icon.outbound{
+  color:#89a9a4!important;
+}
+
+table
+  margin 0 !important
+th, td, tr
+  border none !important
+
+
+/**scroll**/
+
+/*css主要部分的样式*/
+
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+
+width: 6px; /*对垂直流动条有效*/
+
+height: 6px; /*对水平流动条有效*/
+
+}
+
+/*定义滚动条的轨道颜色、内阴影及圆角*/
+
+::-webkit-scrollbar-track{
+
+-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+
+background:linear-gradient(to top, #fff, #3eaf7c,#3eaf7c,#fff);
+
+border-radius: 2px;
+display: none
+}
+
+/*定义滑块颜色、内阴影及圆角*/
+
+::-webkit-scrollbar-thumb{
+
+border-radius: 3px;
+
+background-image: linear-gradient(-45deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+// background-image: linear-gradient(to top, #fa709a 0%, #fee140 100%);
+
+}
+
+/*定义两端按钮的样式*/
+
+::-webkit-scrollbar-button {
+
+background: none;
+
+}
+
+/*定义右下角汇合处的样式*/
+
+::-webkit-scrollbar-corner {
+
+background: none;
+
+}
+
+::-webkit-scrollbar-track-piece {
+
+background: none;
+
+}
