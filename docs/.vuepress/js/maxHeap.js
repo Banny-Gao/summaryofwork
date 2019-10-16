@@ -1,14 +1,4 @@
-/**
- *@author Amigo
- @description MaxHeap
- *   
- */
-
-import {
-  randomNum
-} from './sort'
-//实现一个最大堆
-class MaxHeap {
+export class MaxHeap {
   constructor(len) {
     this.data = new Array(len + 1)
     this.capacity = len //堆容量
@@ -76,7 +66,7 @@ class MaxHeap {
     arr[m] = arr[n]
     arr[n] = temp
   }
-  heapify(arr) {
+  heapify(arr) { // 直接对数组排序
     for (let i = 0; i < arr.length; i++) {
       this.data[i + 1] = arr[i]
     }
@@ -87,16 +77,3 @@ class MaxHeap {
     this.sortArr = this.getData()
   }
 }
-
-console.time('HeapSort_Class')
-const maxHeap = new MaxHeap(100000)
-for (let i = 0; i < 100000; i++) {
-  maxHeap.insert(Math.floor(Math.random() * 100))
-}
-maxHeap.heapSort()
-console.timeEnd('HeapSort_Class')
-
-console.time('HeapSortHeapifyt_Class')
-const maxHeap1 = new MaxHeap(100000)
-maxHeap1.heapify(randomNum(100000, 10))
-console.timeEnd('HeapSortHeapifyt_Class')

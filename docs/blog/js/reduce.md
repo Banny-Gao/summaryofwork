@@ -16,4 +16,6 @@ export const fakeReduce = function fakeReduce(fn, base) {
 
 Array.prototype.fakeReduce = fakeReduce
 ```
-<CodeTest mode='reduce' />
+<CodeTest mode='reduce' />  
+
+<vTalk />

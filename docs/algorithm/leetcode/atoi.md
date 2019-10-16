@@ -15,4 +15,6 @@ export const atoi = (str) => {
   return +Math.max( -2147483648, Math.min( 2147483647, num) )
 }
 ```
-<CodeTest style="margin-top: 20px;" mode="atoi" />
+<CodeTest style="margin-top: 20px;" mode="atoi" />  
+
+<vTalk />

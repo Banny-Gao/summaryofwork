@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.3.13",
+    "gitalk": "^1.5.0",
     "iview": "^3.5.1",
     "markdown-it": "^8.4.1",
     "markdown-it-emoji": "^1.4.0",

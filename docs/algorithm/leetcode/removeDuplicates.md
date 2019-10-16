@@ -23,4 +23,6 @@ export const removeDuplicates = (nums) => {
   return nums.length
 }
 ```
-<CodeTest style="margin-top: 20px;" mode="removeDuplicates" />
+<CodeTest style="margin-top: 20px;" mode="removeDuplicates" />  
+
+<vTalk />

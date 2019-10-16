@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         text: 'Gayhub',
-        link: 'https://github.com/xinandiyishuai/SummaryOfWork'
+        link: 'https://github.com/Mackkkk/facing-smart/'
       }
     ],
     sidebar: {

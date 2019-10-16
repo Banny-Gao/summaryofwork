@@ -37,4 +37,6 @@ export class Solution {
 
 ### shuffle1  
 
-<LazySudoku />
+<LazySudoku />  
+
+<vTalk />

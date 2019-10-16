@@ -31,4 +31,6 @@ export const sumFoo = (arr = [], target) => {
 }
 ```
 
-<CodeTest mode='twoSum' />
+<CodeTest mode='twoSum' />  
+
+<vTalk />

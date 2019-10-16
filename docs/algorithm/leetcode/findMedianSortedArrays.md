@@ -378,4 +378,6 @@ export const findMedianSortedArrays = (nums1, nums2) => {
 
 <CodeTest style="margin-top: 20px;" mode="findMedianSortedArrays" /> 
 
-**[LeetCode题解](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/)**
+**[LeetCode题解](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-2/)**  
+
+<vTalk />

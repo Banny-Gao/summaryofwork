@@ -10,4 +10,7 @@ export * from './sort'
 export * from './threeSumClosest'
 export * from './isValid'
 export * from './removeDuplicates'
+export * from './maxArea'
+export * from './maxHeap'
+export * from './multiply'
 

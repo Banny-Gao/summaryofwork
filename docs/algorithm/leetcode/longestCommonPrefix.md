@@ -36,4 +36,6 @@ export const longestCommonPrefix = (strs) => {
   return com
 }
 ```
-<CodeTest style="margin-top: 20px;" mode="longestCommonPrefix" />
+<CodeTest style="margin-top: 20px;" mode="longestCommonPrefix" /> 
+
+<vTalk />

@@ -185,4 +185,6 @@ export const longestPalindrome = (str) =>{
 
 <CodeTest mode="longestPalindrome" />  
 
-**[LeetCode题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)**
+**[LeetCode题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)**  
+
+<vTalk />

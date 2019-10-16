@@ -67,7 +67,23 @@ timeTest(selectSort, randomNum(10000))`,
   removeDuplicates: `var arr = [0,0,2,3,3,4]
   var c = removeDuplicates(arr)
   console.log(c)
-  console.table(arr)`
+  console.table(arr)`,
+  maxArea: `const max = maxArea([1,8,6,2,5,4,8,3,7])
+  console.log(max)`,
+  testMaxHeap: `console.time('HeapSort_Class')
+  const maxHeap = new MaxHeap(100000)
+  for (let i = 0; i < 100000; i++) {
+    maxHeap.insert(Math.floor(Math.random() * 100))
+  }
+  maxHeap.heapSort()
+  console.timeEnd('HeapSort_Class')
+  
+  console.time('HeapSortHeapifyt_Class')
+  const maxHeap1 = new MaxHeap(100000)
+  maxHeap1.heapify(randomNum(100000, 100))
+  console.timeEnd('HeapSortHeapifyt_Class')`,
+  multiply: `var a = multiply('123','45')
+  console.log(a)`
 }
 
 export default codemap
