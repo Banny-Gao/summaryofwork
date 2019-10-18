@@ -51,7 +51,7 @@
   body {
     .home {
       max-width: 100%;
-      background-color: $homeBgColor;
+      background-color: $homeBgColor!important;
       min-height: calc(100vh - 6rem);
       display: flex;
       padding: 1.2rem 2rem 0;

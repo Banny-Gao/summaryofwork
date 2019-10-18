@@ -13,4 +13,5 @@ export * from './removeDuplicates'
 export * from './maxArea'
 export * from './maxHeap'
 export * from './multiply'
+export * from './reverseString'
 

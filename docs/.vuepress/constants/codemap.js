@@ -70,20 +70,21 @@ timeTest(selectSort, randomNum(10000))`,
   console.table(arr)`,
   maxArea: `const max = maxArea([1,8,6,2,5,4,8,3,7])
   console.log(max)`,
-  testMaxHeap: `console.time('HeapSort_Class')
-  const maxHeap = new MaxHeap(100000)
-  for (let i = 0; i < 100000; i++) {
-    maxHeap.insert(Math.floor(Math.random() * 100))
-  }
-  maxHeap.heapSort()
-  console.timeEnd('HeapSort_Class')
-  
-  console.time('HeapSortHeapifyt_Class')
-  const maxHeap1 = new MaxHeap(100000)
-  maxHeap1.heapify(randomNum(100000, 100))
-  console.timeEnd('HeapSortHeapifyt_Class')`,
+  testMaxHeap: `var arr = [2,7,17,3,19,100,36,25,4]
+  var heap = new MaxHeap(arr)
+  console.table(heap)
+  var sortArr = heap.sort()
+  console.log(sortArr)`,
   multiply: `var a = multiply('123','45')
-  console.log(a)`
+  console.log(a)`,
+  reverseString: `// 千万级数据量反转
+  var arr = new Array(10000000)
+  for(let i=0; i < arr.length; i++) {
+    arr[i] = Math.random() * 1000
+  }
+  console.time()
+  arr.reverse()
+  console.timeEnd()`
 }
 
 export default codemap

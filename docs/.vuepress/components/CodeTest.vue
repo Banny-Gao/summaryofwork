@@ -18,6 +18,14 @@
         <a-select-option value="quickSort1">quickSort1</a-select-option>
         <a-select-option value="quickSort2">quickSort2</a-select-option>
       </a-select>
+      <a-select labelInValue
+                :defaultValue="{key: 'reverse'}"
+                style="width: 140px;margin-right: 14px;"
+                @change="reverseSelect"
+                v-if="mode === 'reverseString'">
+        <a-select-option value="reverse">reverse</a-select-option>
+        <a-select-option value="reverseString">reverseString</a-select-option>
+      </a-select>
       <a-button type="primary"
                 size='small'
                 @click="run">运行</a-button>
@@ -186,6 +194,10 @@
         const { key } = e
         this.codeToggle(key, 'quickSort1', 'quickSort2')
       },
+      reverseSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'reverse', 'reverseString')
+      },
   		run() {
   			clearTimeout(this.computTimer)
   			const that = this
@@ -220,7 +232,7 @@
   			return Object.keys(data).reduce((arr, key) => {
   				arr.push({
   					key,
-  					value: data[key],
+  					value: JSON.stringify(data[key]),
   				})
   				return arr
   			}, [])

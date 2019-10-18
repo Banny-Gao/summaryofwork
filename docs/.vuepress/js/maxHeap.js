@@ -1,20 +1,36 @@
 export class MaxHeap {
-  constructor(len) {
-    this.data = new Array(len + 1)
-    this.capacity = len //堆容量
-    this.count = 0 // 堆中元素的个数
-    this.sortArr = [] //排序数组
+  constructor(data = []) {
+    Array.isArray(data) && (this.data = data)
+    if (typeof data === 'number') {
+      this.data = new Array(data)
+    }
+    this.count = 0
+    this.init()
+  }
+  init() {
+    this.buildMaxHeap(this.data)
+  }
+  swap(arr, m, n) {
+    let temp = arr[m]
+    arr[m] = arr[n]
+    arr[n] = temp
+  }
+  buildMaxHeap(data = []) {
+    for (let item of data) {
+      if (!item && item !== 0) return
+      this.insert(item)
+    }
   }
   shiftUp(k) {
-    //向上调整堆
-    while (k > 1 && this.data[Math.floor(k / 2)] < this.data[k]) {
-      this.swap(this.data, Math.floor(k / 2), k)
-      k = Math.floor(k / 2)
+    // 如果一个节点比它的父节点大（最大堆）或者小（最小堆），那么需要将它同父节点交换位置。这样是这个节点在数组的位置上升
+    while (k > 0 && this.data[~~(k / 2)] < this.data[k]) {
+      this.swap(this.data, ~~(k / 2), k)
+      k = ~~(k / 2)
     }
   }
   shiftDown(k) {
-    //向下调整堆
-    while (k * 2 <= this.count) {
+    // 如果一个节点比它的子节点小，那么需要将它向下移动
+    while (k * 2 < this.count) {
       let j = k * 2
       if (j + 1 <= this.count && this.data[j + 1] > this.data[j]) j++
       if (this.data[k] >= this.data[j]) break
@@ -22,58 +38,32 @@ export class MaxHeap {
       k = j
     }
   }
-  size() {
-    return this.count
-  }
   insert(item) {
-    //往堆添加元素
-    if (this.count + 1 > this.capacity) throw Error('超过限制长度')
-    this.data[++this.count] = item
+    // 在堆的尾部添加一个新的元素，然后使用 shiftUp 来修复对。
+    if (this.count + 1 > this.data.length) throw Error('超过限制长度')
+    this.data[this.count] = item
     this.shiftUp(this.count)
-  }
-  getData() {
-    //获取堆中的元素
-    let arr = []
-    if (!this.count) return arr
-    arr = []
-      .concat(this.data)
-      .splice(1)
-      .filter(item => item !== undefined)
-    return arr
+    this.count++
   }
   extractMax() {
     //取出最大数
     if (this.count === 0) return
-    const ret = this.data[1]
-    this.swap(this.data, 1, this.count--)
-    this.shiftDown(1)
+    const ret = this.data[0]
+    this.swap(this.data, 0, --this.count)
+    this.data.splice(-1)
+    this.shiftDown(0)
     return ret
   }
-  getMax() {
-    if (this.count) return this.data[1]
-  }
-  heapSort() {
-    //堆排序
-    if (this.sortArr.length !== 0) return this.sortArr
-    const len = this.count
-    for (let i = 0; i < len; i++) {
-      if (i !== undefined) this.sortArr.push(this.extractMax())
+  sort() {
+    const arr = [], reset = [...this.data]
+    while (this.count !== 0) {
+      const item = this.extractMax(),
+        index = this.count
+        arr[index] = item
     }
-    return this.sortArr
-  }
-  swap(arr, m, n) {
-    let temp = arr[m]
-    arr[m] = arr[n]
-    arr[n] = temp
-  }
-  heapify(arr) { // 直接对数组排序
-    for (let i = 0; i < arr.length; i++) {
-      this.data[i + 1] = arr[i]
-    }
-    this.count = arr.length
-    for (let j = Math.floor(this.count / 2); j >= 1; j--) {
-      this.shiftDown(j)
-    }
-    this.sortArr = this.getData()
+    this.count = reset.length
+    this.data = reset
+    return arr
   }
 }
+
