@@ -84,7 +84,8 @@ timeTest(selectSort, randomNum(10000))`,
   }
   console.time()
   arr.reverse()
-  console.timeEnd()`
+  console.timeEnd()`,
+  productExceptSelf: ``
 }
 
 export default codemap
