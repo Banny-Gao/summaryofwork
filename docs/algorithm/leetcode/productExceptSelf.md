@@ -47,5 +47,6 @@ export const productExceptSelf = (nums) => {
 ```
 <CodeTest style="margin-top: 20px;" mode="productExceptSelf" />  
 
-[leetCode题解]()
+[leetCode题解](https://leetcode-cn.com/problems/product-of-array-except-self/solution/yi-ci-bian-li-qiao-miao-cun-chu-he-ji-suan-zuo-ji-/) 
+
 <vTalk />

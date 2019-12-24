@@ -69,8 +69,7 @@
 
 <style lang="stylus">
   .curve-con {
-    margin: 0 auto;
     width: 800px;
-    height: 520px;
+    height: 60vh;
   }
 </style>

@@ -46,6 +46,7 @@ export default {
       border-radius 0.2rem
       object-fit cover
   .card-content
+    width 100%
     padding 0.5rem
     flex-grow 1
     p
@@ -60,7 +61,6 @@ export default {
     display flex
     flex-direction column
     margin 1rem -0.5rem
-    padding 0.5rem
     box-sizing border-box
     .card-image
       flex-grow 1

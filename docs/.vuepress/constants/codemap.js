@@ -85,7 +85,21 @@ timeTest(selectSort, randomNum(10000))`,
   console.time()
   arr.reverse()
   console.timeEnd()`,
-  productExceptSelf: ``
+  productExceptSelf: `var result = productExceptSelf ([1,2,3,4])
+  console.log(result)`,
+  spiralOrder: `var result = spiralOrder([
+  	[1,2,3,4],
+  	[5,6,7,8],
+  	[9,10,11,12],
+  	[13,14,15,16]
+])
+console.log(result)`,
+  generateMatrix: `var result = generateMatrix (4)
+console.table(result)`,
+  merge: `var nums1 = [1,2,3,0,0,0]
+  var nums2 = [2,5,6]
+  var result = merge(nums1,3,nums2,3)
+  console.log(result)`
 }
 
 export default codemap

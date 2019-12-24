@@ -15,4 +15,7 @@ export * from './maxHeap'
 export * from './multiply'
 export * from './reverseString'
 export * from './productExceptSelf'
+export * from './spiralOrder'
+export * from './generateMatrix'
+export * from './merge'
 

@@ -126,7 +126,7 @@ export const mergeSort = (arr, l = 0, r = arr.length - 1) => {
 }
 
 // 1,4,5  2,3,6 对于单边有序该怎么去合并
-export const merge = (arr, left, mid, right) => {
+const merge = (arr, left, mid, right) => {
   // 原地排序，需要额外数组来存值
   const result = []
   for (let i = 0; i <= right - left; i++) {

@@ -68,7 +68,7 @@ module.exports = {
     anchor: {
       permalink: false
     },
-    config: (md) => {
+    extendMarkdown: (md) => {
       md.use(require('markdown-it-katex'))
     }
   }
