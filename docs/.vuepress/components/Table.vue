@@ -3,7 +3,6 @@
 </template>
 <script>
   import iTable from 'iview/src/components/table'
-  import 'iview/dist/styles/iview.css'
   export default {
   	components: {
   		iTable,

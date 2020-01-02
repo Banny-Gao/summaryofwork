@@ -37,10 +37,10 @@ const getTimeEmoj = () => {
  * 获取目录md文件列表
  */
 const getMdMap = (pathName) => {
-  const dirname = path.dirname(__dirname.replace(/(\S)\.vuepress/,(str,$1) => $1))
+  const dirname = path.dirname(__dirname.replace(/(\S)\.vuepress/, (str, $1) => $1))
   let basePath = dirname.replace(/\\/g, '\/')
   const pathArr = basePath.split('\/').splice(0)
-  basePath = pathArr.join('/') + `/${pathName}/`
+  basePath = pathArr.join('/') + `/${ pathName }/`
   const fileList = walkFile(basePath, '.md').reverse()
   return fileList
 }

@@ -16,8 +16,8 @@ export default ({
   siteData // 站点元数据
 }) => {
 
-  import('iview/dist/styles/iview.css')
   import('ant-design-vue/dist/antd.css')
+  import('iview/dist/styles/iview.css')
   
   Vue.use(Antd)
   Vue.use(vTalk)
