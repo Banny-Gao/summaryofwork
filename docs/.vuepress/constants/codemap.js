@@ -99,7 +99,12 @@ console.table(result)`,
   merge: `var nums1 = [1,2,3,0,0,0]
   var nums2 = [2,5,6]
   var result = merge(nums1,3,nums2,3)
-  console.log(result)`
+  console.log(result)`,
+  parseInt: `var arr = ['1', '2', '3'].map(parseInt)
+  console.log(arr)
+  
+  var i = parseInt(1 / 0, 19) 
+  console.log(i)`
 }
 
 export default codemap

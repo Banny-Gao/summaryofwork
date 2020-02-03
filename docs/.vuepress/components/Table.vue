@@ -8,7 +8,7 @@
   		iTable,
   	},
     props: {
-      tableProp: {}
+      tableProp: {},
     },
   	data() {
   		return {}

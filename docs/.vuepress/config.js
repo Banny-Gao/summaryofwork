@@ -23,14 +23,10 @@ module.exports = {
     },
     {
       text: navTitle,
-      link: '/nav/'
-    },
-    {
-      text: '求知',
       link: '/blog/'
     },
     {
-      text: '好学',
+      text: 'Learning',
       items: [{
         text: '📚读书',
         link: '/bookReading/'
@@ -51,7 +47,7 @@ module.exports = {
     },
     {
       text: 'Gayhub',
-      link: 'https://github.com/Mackkkk/facing-smart/'
+      link: 'https://github.com/Mackkkk/'
     }
     ],
     sidebar: {

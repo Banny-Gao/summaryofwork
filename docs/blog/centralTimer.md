@@ -1,4 +1,4 @@
-# 实现一个中央定时器
+# 中央定时器
 
 ```javascript
 class Timer {

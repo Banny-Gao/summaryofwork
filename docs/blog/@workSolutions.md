@@ -1,4 +1,4 @@
-# 解决问题的不止一百种方法
+# Works Solution
 
 ## IE中打开谷歌
 **需要降低Internet选项安全级别**

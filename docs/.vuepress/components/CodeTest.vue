@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- codemirror -->
-    <div class='select_wraper'>
+    <div class='select_wraper m-t-10'>
       <a-select labelInValue
                 :defaultValue="{key: 'reduce'}"
                 style="width: 120px;margin-right: 14px;"
