@@ -18,4 +18,5 @@ export * from './productExceptSelf'
 export * from './spiralOrder'
 export * from './generateMatrix'
 export * from './merge'
+export * from './promiseRealize'
 

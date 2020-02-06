@@ -104,7 +104,25 @@ console.table(result)`,
   console.log(arr)
   
   var i = parseInt(1 / 0, 19) 
-  console.log(i)`
+  console.log(i)`,
+  Promise: `let promise1 = new FakePromise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 1000)
+  })
+  promise1.then(() => {
+    return new FakePromise((resolve, reject) => {
+		setTimeout(() => {
+        	resolve(123)
+        }, 1000)
+	})
+  }).then(res => {
+    console.log(res)  //123
+    // 返回一个普通值
+    return '这里返回一个普通值'
+  }).then(res => {
+    console.log(res) //1秒后打印出：这里返回一个普通值
+  })`
 }
 
 export default codemap

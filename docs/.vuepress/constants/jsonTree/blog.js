@@ -26,6 +26,11 @@ export default {
                     id: 'parseInt深入',
                     path: '/blog/@dailyQ.html#_4-parseint深入',
                     level: 2,
+                },
+                {
+                    id: 'position sticky',
+                    path: '/blog/@dailyQ.html#_5-position-sticky',
+                    level: 2,
                 }
             ]
         },
@@ -168,6 +173,11 @@ export default {
         {
             id: 'Vue2.x原理浅析',
             path: '/blog/vuerealize.html',
+            level: 1,
+        },
+        {
+            id: 'Promise实现原理',
+            path: '/blog/promiseRealize.html',
             level: 1,
         }
     ]
