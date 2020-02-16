@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-  import TransferDom from 'iview/src/directives/transfer-dom'
+  import TransferDom from 'view-design/src/directives/transfer-dom'
   import 'magic.css/dist/magic.min.css'
   import 'animate.css/animate.min.css'
 

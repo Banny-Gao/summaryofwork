@@ -17,9 +17,10 @@ export default ({
 }) => {
 
   import('ant-design-vue/dist/antd.css')
-  import('iview/dist/styles/iview.css')
+  import('view-design/dist/styles/iview.css')
   
   Vue.use(Antd)
+  
   Vue.use(vTalk)
   Vue.use(magicModal)
   Vue.prototype.$velocity = Velocity

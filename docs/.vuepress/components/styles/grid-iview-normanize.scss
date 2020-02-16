@@ -1,0 +1,9 @@
+.ivu-tabs-nav{
+    width: calc(100% - 0.8em);
+    display: flex;
+}
+.ivu-tabs-tab {
+  font-size: 1.4em;
+  flex: 1;
+  text-align: center;
+}

@@ -1,11 +1,11 @@
 <template>
-  <div ref="graph"></div>
+  <div>
+      <div ref="graph"></div>
+      <p style="text-align: right;font-size: 1.2em;color: #ccc;">右键访问节点</p>
+  </div>
 </template>
 <script>
-import G6 from "@antv/g6"
-
-const contextmenuDiv = document.createElement("div")
-contextmenuDiv.classList.add("g6-tooltip", "g6-node-tooltip")
+var G6,contextmenuDiv
 
 export default {
   props: {
@@ -279,6 +279,10 @@ export default {
     }
   },
   async mounted() {
+    G6 = await import("@antv/g6")
+    contextmenuDiv = document.createElement("div")
+    contextmenuDiv.classList.add("g6-tooltip", "g6-node-tooltip")
+    
     const pathname = location.pathname.match(/\/(\w+)\/$/)[1]
     const { default: data } = await import(`../constants/jsonTree/${pathname}`)
 

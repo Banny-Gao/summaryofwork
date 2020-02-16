@@ -51,7 +51,7 @@
         :options="cmOptions"
       ></codemirror>
       <div class="result_con">
-        <i-spin fix size="large" v-if="isCompute"></i-spin>
+        <Spin fix size="large" v-if="isCompute"></Spin>
         <template v-for="(item, i) of resultText">
           <p v-if="item.type === 'time'" :key="i">
             {{ item.name }}：{{ item.value }}ms
@@ -93,7 +93,9 @@ import Input from "ant-design-vue/lib/input"
 import Select from "ant-design-vue/lib/select"
 import Table from "ant-design-vue/lib/table"
 import Alert from "ant-design-vue/lib/alert"
-import iSpin from "iview/src/components/spin"
+import {
+    Spin
+} from 'view-design'
 
 import CodeMap from "../constants/codemap"
 
@@ -152,7 +154,7 @@ export default {
     [Select.name]: Select,
     [Select.Option.name]: Select.Option,
     [Select.OptGroup.name]: Select.OptGroup,
-    iSpin
+    Spin,
   },
   props: {
     mode: {
