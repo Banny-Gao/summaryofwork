@@ -196,6 +196,43 @@ export default {
                     level: 2,
                 },
             ]
+        },
+        {
+            id: '深入深拷贝',
+            path: '/blog/deepClone.html',
+            level: 1,
+            children: [
+                {
+                    id: 'JSON',
+                    path: '/blog/deepClone.html#json方法',
+                    level: 2,
+                },
+                {
+                    id: 'Object.assign',
+                    path: '/blog/deepClone.html#使用object-assign',
+                    level: 2,
+                },
+                {
+                    id: 'Messagechannel',
+                    path: '/blog/deepClone.html#使用messagechannel',
+                    level: 2,
+                },
+                {
+                    id: '深度优先',
+                    path: '/blog/deepClone.html#深度优先',
+                    level: 2,
+                },
+                {
+                    id: '广度优先',
+                    path: '/blog/deepClone.html#广度优先',
+                    level: 2,
+                },
+                {
+                    id: '_.cloneDeep',
+                    path: '/blog/deepClone.html#clonedeep-lodash-4-17-15',
+                    level: 2,
+                },
+            ]
         }
     ]
 }
