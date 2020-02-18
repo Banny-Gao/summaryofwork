@@ -33,7 +33,9 @@ export class Solution {
 ```
 ### shuffle0  
 
+<ClientOnly>
 <ShuffleNumber />  
+</ClientOnly>
 
 ### shuffle1  
 

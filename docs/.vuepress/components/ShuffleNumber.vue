@@ -39,13 +39,8 @@
   </div>
 </template>
 <script>
-  import Button from 'ant-design-vue/lib/button'
-  import 'ant-design-vue/dist/antd.css'
   import { shuffle0, shuffle1 } from '../js'
   export default {
-  	components: {
-  		aButton: Button,
-  	},
   	data() {
   		return {
   			items: [1, 2, 3, 4, 5, 6, 7, 8, 9],

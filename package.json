@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "work space of question and solution",
   "author": "Amigo",
-  "repository": "https://github.com/xinandiyishuai/SummaryOfWork",
+  "repository": "https://github.com/Mackkkk/summaryofwork",
   "scripts": {
     "clean": "rimraf dist/*",
     "dev": "vuepress dev docs",
