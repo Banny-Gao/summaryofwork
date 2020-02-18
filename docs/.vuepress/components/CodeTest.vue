@@ -42,6 +42,24 @@
         <a-select-option value="reverse">reverse</a-select-option>
         <a-select-option value="reverseString">reverseString</a-select-option>
       </a-select>
+      <a-select
+        labelInValue
+        :defaultValue="{ key: 'cloneDeep' }"
+        style="width: 240px;margin-right: 14px;"
+        @change="cloneDeepSelect"
+        v-if="mode === 'cloneDeep'"
+      >
+        <a-select-option value="cloneDeep">cloneDeep</a-select-option>
+        <a-select-option value="cloneDeep_JSON">cloneDeep_JSON</a-select-option>
+        <a-select-option value="cloneDeep_Assign"
+          >cloneDeep_Assign</a-select-option
+        >
+        <a-select-option value="cloneDeep_MessageChannel"
+          >cloneDeep_MessageChannel</a-select-option
+        >
+        <a-select-option value="cloneDeep_DFS">cloneDeep_DFS</a-select-option>
+        <a-select-option value="cloneDeep_BFS">cloneDeep_BFS</a-select-option>
+      </a-select>
       <a-button type="primary" size="small" @click="run">运行</a-button>
     </div>
     <div class="codemirror_con">
@@ -53,26 +71,26 @@
       <div class="result_con">
         <Spin fix size="large" v-if="isCompute"></Spin>
         <template v-for="(item, i) of resultText">
-          <p v-if="item.type === 'time'" :key="i">
+          <p v-if="(item && item.type === 'time')" :key="i">
             {{ item.name }}：{{ item.value }}ms
           </p>
           <a-table
             :columns="consoleColumns"
             :dataSource="traverseData(item.value)"
-            v-else-if="item.type === 'table'"
+            v-else-if="item && item.type === 'table'"
             :pagination="false"
           ></a-table>
           <a-alert
             class="m-t-10"
             type="warning"
-            v-else-if="item.type === 'warn'"
+            v-else-if="item && item.type === 'warn'"
             :message="item.value"
             showIcon
           ></a-alert>
           <a-alert
             class="m-t-10"
             type="error"
-            v-else-if="item.type === 'error'"
+            v-else-if="item && item.type === 'error'"
             :message="item.value"
             showIcon
           ></a-alert>
@@ -80,7 +98,7 @@
         </template>
       </div>
     </div>
-    <p class="tip">console.time 结果以控制台时间为准</p>
+    <p class="tip">console结果可能不准确，按F12打开控制台查看</p>
   </div>
 </template>
 
@@ -93,9 +111,7 @@ import Input from "ant-design-vue/lib/input"
 import Select from "ant-design-vue/lib/select"
 import Table from "ant-design-vue/lib/table"
 import Alert from "ant-design-vue/lib/alert"
-import {
-    Spin
-} from 'view-design'
+import { Spin } from "view-design"
 
 import CodeMap from "../constants/codemap"
 
@@ -144,6 +160,8 @@ try {
   require("codemirror/addon/fold/xml-fold.js")
 } catch (error) {}
 
+let cloneDeepSelectMemroy = "cloneDeep"
+
 export default {
   components: {
     codemirror,
@@ -154,7 +172,7 @@ export default {
     [Select.name]: Select,
     [Select.Option.name]: Select.Option,
     [Select.OptGroup.name]: Select.OptGroup,
-    Spin,
+    Spin
   },
   props: {
     mode: {
@@ -222,6 +240,11 @@ export default {
       const { key } = e
       this.codeToggle(key, "reverse", "reverseString")
     },
+    cloneDeepSelect(e) {
+      const { key } = e
+      this.codeToggle(key, cloneDeepSelectMemroy, key)
+      cloneDeepSelectMemroy = key
+    },
     run() {
       clearTimeout(this.computTimer)
       const that = this
@@ -235,8 +258,19 @@ export default {
           console.clearLog()
           console.watch(val => {
             this.isCompute = false
-            this.resultText = val
-            window.val = val
+            try {
+                JSON.stringify(val)
+                this.resultText = val
+            } catch (error) {
+                this.resultText = val.map(item => {
+                    try {
+                        JSON.stringify(item)
+                    } catch (error) {
+                        item = String(item)
+                    }
+                    return item
+                })
+            }
           })
           eval(this.code)
         })

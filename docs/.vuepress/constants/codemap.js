@@ -122,7 +122,21 @@ console.table(result)`,
     return '这里返回一个普通值'
   }).then(res => {
     console.log(res) //1秒后打印出：这里返回一个普通值
-  })`
+  })`,
+  cloneDeep: `const testObj = {
+    a: 1,
+    b: {
+        c: 1,
+        d: 2
+    },
+    circle: null,
+    e: function() {
+        console.log(1);
+    }
+}
+testObj.b.circle = testObj.b;
+const result = cloneDeep(testObj)
+console.log(result)`
 }
 
 export default codemap

@@ -41,7 +41,7 @@
 <script>
   import Button from 'ant-design-vue/lib/button'
   import 'ant-design-vue/dist/antd.css'
-  import { shuffle0, shuffle1 } from '../js/shuffle'
+  import { shuffle0, shuffle1 } from '../js'
   export default {
   	components: {
   		aButton: Button,
