@@ -663,3 +663,5 @@ export const cloneDeep = (value, stack) => {
 ```
 
 <CodeTest mode='cloneDeep' />
+
+<vTalk />

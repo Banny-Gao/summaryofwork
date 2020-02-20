@@ -233,6 +233,11 @@ export default {
                     level: 2,
                 },
             ]
-        }
+        },
+        {
+            id: 'Async',
+            path: '/blog/async.html',
+            level: 1,
+        },
     ]
 }
