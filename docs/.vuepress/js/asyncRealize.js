@@ -1,28 +1,24 @@
 export const generatorRun = (genFunc) => {
     return new Promise((resolve, reject) => {
         const gen = genFunc()
-        const step = (nextF) => {
-            let next
+        const step = (key, arg) => {
+            let next, value
             try {
-                next = nextF()
-            } catch (e) {
-                return reject(e)
+                next = gen[key](arg)
+                value = next.value
+            } catch (error) {
+                return reject(error)
             }
             if (next.done) {
-                return resolve(next.value)
+                resolve(value)
+            } else {
+                return Promise.resolve(value).then((value) => {
+                    step('next', value)
+                }, (error) => {
+                    step('throw', error)
+                })
             }
-            Promise.resolve(next.value).then((v) => {
-                step(() => {
-                    return gen.next(v)
-                })
-            }, (e) => {
-                step(() => {
-                    return gen.throw(e)
-                })
-            })
         }
-        step(() => {
-            return gen.next(undefined)
-        })
+        return step('next')
     })
 }

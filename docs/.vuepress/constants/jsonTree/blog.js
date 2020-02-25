@@ -239,5 +239,10 @@ export default {
             path: '/blog/async.html',
             level: 1,
         },
+        {
+            id: '函数柯里化',
+            path: '/blog/curryFunc.html',
+            level: 1,
+        },
     ]
 }
