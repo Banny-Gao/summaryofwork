@@ -5,6 +5,7 @@
   "author": "Amigo",
   "repository": "https://github.com/Mackkkk/summaryofwork",
   "scripts": {
+    "start": "npm run dev",
     "clean": "rimraf dist/*",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
