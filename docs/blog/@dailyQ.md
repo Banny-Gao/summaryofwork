@@ -1,42 +1,49 @@
-# Daily Question 
+# Daily Question
 
-## 1.React/Vue列表渲染key的作用？  
-<MarkdownCard>  
+## 1.React/Vue 列表渲染 key 的作用？
 
-* key是给每一个vnode的唯一id 
-* 可以依靠key,更准确, 更快的拿到oldVnode中对应的vnode节点.
+<MarkdownCard>
 
-</MarkdownCard>  
+- key 是给每一个 vnode 的唯一 id
+- 可以依靠 key,更准确, 更快的拿到 oldVnode 中对应的 vnode 节点.
 
-## 2.ES5/ES6继承除写法以外的区别？  
-<MarkdownCard>  
+</MarkdownCard>
 
-1) class 声明会提升，但不会初始化赋值。Foo 进入暂时性死区，类似于 let、const 声明变量。
-``` javascript
- const bar = new Bar(); // it's ok
- function Bar() {
-   this.bar = 42;
- }
- const foo = new Foo(); // ReferenceError: Foo is not defined
- class Foo {
-   constructor() {
-     this.foo = 42;
-   }
- }
+## 2.ES5/ES6 继承除写法以外的区别？
+
+<MarkdownCard>
+
+1. class 声明会提升，但不会初始化赋值。Foo 进入暂时性死区，类似于 let、const 声明变量。
+
+```javascript
+const bar = new Bar() // it's ok
+function Bar() {
+  this.bar = 42
+}
+const foo = new Foo() // ReferenceError: Foo is not defined
+class Foo {
+  constructor() {
+    this.foo = 42
+  }
+}
 ```
-2) class 声明内部会启用严格模式。
-3) class 的所有方法（包括静态方法和实例方法）都是不可枚举的。
-4) class 的所有方法（包括静态方法和实例方法）都没有原型对象 prototype，所以也没有[[construct]]，不能使用 new 来调用。
-5) 必须使用 new 调用 class。
-6) class 内部无法重写类名  
 
-</MarkdownCard>  
+2. class 声明内部会启用严格模式。
+3. class 的所有方法（包括静态方法和实例方法）都是不可枚举的。
+4. class 的所有方法（包括静态方法和实例方法）都没有原型对象 prototype，所以也没有[[construct]]，不能使用 new 来调用。
+5. 必须使用 new 调用 class。
+6. class 内部无法重写类名
 
-## 3.简单实现一个eval  
-<MarkdownCard>  
+</MarkdownCard>
 
-通过**Function** 构造函数 创建一个新的Function对象。 在 JavaScript 中, 每个函数实际上都是一个Function对象。
-  > new Function ([arg1[, arg2[, ...argN]],] functionBody).  [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function)
+## 3.简单实现一个 eval
+
+<MarkdownCard>
+
+通过**Function** 构造函数 创建一个新的 Function 对象。 在 JavaScript 中, 每个函数实际上都是一个 Function 对象。
+
+> new Function ([arg1[, arg2[, ...argN]],] functionBody). [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function)
+
 ```JavaScript
 function cEval(exp) {
   return new Function('return '+ exp).call(this)
@@ -47,35 +54,39 @@ cEval(str)
 
 </MarkdownCard>
 
-## 4.parseInt深入
+## 4.parseInt 深入
 
 <MarkdownCard>
 
->  parseInt(string, radix) 
+> parseInt(string, radix)
 
-对于第一个参数string： 
-* 如果参数不是一个字符串，则将其转换为字符串(使用  ToString 抽象操作) 
-* 字符串开头的空白符将会被忽略
+对于第一个参数 string：
 
-对于第二个参数radix:  
-* 一个介于2和36之间的整数(数学系统的基础)，表示上述字符串的基数
+- 如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)
+- 字符串开头的空白符将会被忽略
 
-radix为undefined,0或者没有指定的情况下: 
-* 以"0x"或者"0X"开头, 则基数是16
-* string 以"0"开头, 基数是8（八进制）或者10（十进制）
-* string 以其它任何值开头，则基数是10 (十进制)
+对于第二个参数 radix:
+
+- 一个介于 2 和 36 之间的整数(数学系统的基础)，表示上述字符串的基数
+
+radix 为 undefined,0 或者没有指定的情况下:
+
+- 以"0x"或者"0X"开头, 则基数是 16
+- string 以"0"开头, 基数是 8（八进制）或者 10（十进制）
+- string 以其它任何值开头，则基数是 10 (十进制)
 
 **如果被解析参数的第一个字符无法被转化成数值类型，则返回 NaN**  
-**radix参数为n 将会把第一个参数看作是一个数的n进制表示，而返回的值则是十进制的**
+**radix 参数为 n 将会把第一个参数看作是一个数的 n 进制表示，而返回的值则是十进制的**
 
-注意： 
-* 使用parseInt去截取包含e字符数值部分会造成难以预料的结果
-* 如果 parseInt 遇到了不属于radix参数所指定的基数中的字符那么该字符和其后的字符都将被忽略。接着返回已经解析的整数部分 
-* 基数是1，返回 NaN
+注意：
+
+- 使用 parseInt 去截取包含 e 字符数值部分会造成难以预料的结果
+- 如果 parseInt 遇到了不属于 radix 参数所指定的基数中的字符那么该字符和其后的字符都将被忽略。接着返回已经解析的整数部分
+- 基数是 1，返回 NaN
 
 </MarkdownCard>
 
-### base转换规则表
+### base 转换规则表
 
 <Table :tableProp="{
   height: '400',
@@ -126,9 +137,9 @@ radix为undefined,0或者没有指定的情况下:
     { 'index': 'z', 'Base36': '35', 'middle': '...', 'Base10': 'NaN', 'end': '...', 'Base2': 'NaN' },
   ],
   border: false
-}" />  
+}" />
 
-<CodeTest mode='parseInt' />  
+<CodeTest mode='parseInt' />
 
 ## 5.position sticky ?
 
@@ -142,5 +153,36 @@ radix为undefined,0或者没有指定的情况下:
      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
    >
 </iframe>
+
+## 6.call & apply & bind 实现
+
+- call
+```javascript
+Function.prototype._call = function(context, ...args) {
+  context = context || window
+  context.fn = this
+  const result = context.fn(...args)
+  delete context.fn
+  return result
+}
+```
+
+- apply
+```javascript
+Function.prototype._apply = function(context, arg = []) {
+  context = context || window
+  context.fn = this
+  const result = context.fn(...arg)
+  delete context.fn
+  return result
+}
+```
+
+- bind
+```javascript
+Function.prototype._bind = function(context, ...args) {
+  return () => this.apply(context, args)
+}
+```
 
 <vTalk />
