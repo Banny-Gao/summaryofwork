@@ -174,6 +174,22 @@ console.log(result)`,
     console.log(this.scrollY)
   }
   window.onscroll = debounce(scrollHandler, 500)`,
+  DFS: `fetch('/nametree.json').then(res => res.json()).then(data => {
+    const dfs = new DFS(data)     
+    const bfs = new DFS(data)
+    console.time('DFS非递归')
+    dfs.getValues('name')
+    console.timeEnd('DFS非递归')
+    console.time('DFS递归')
+    dfs.getValuesRecursive('name')
+    console.timeEnd('DFS递归')
+     console.time('BFS非递归')
+    bfs.getValues('name')
+    console.timeEnd('BFS非递归')
+    console.time('BFS递归')
+    bfs.getValuesRecursive('name')
+    console.timeEnd('BFS递归')
+  })`
 }
 
 export default codemap
