@@ -1,4 +1,4 @@
-export const debounce = (func, wait = 500, immediate = false) => {
+export const debounce = (func, wait = 0, immediate = false) => {
   let timer, context
 
   const later = (...args) =>
@@ -24,7 +24,7 @@ export const debounce = (func, wait = 500, immediate = false) => {
 
 export const throttle = (
   func,
-  wait = 500,
+  wait = 0,
   { leading = false, trailing = false } = {}
 ) => {
   let context, result

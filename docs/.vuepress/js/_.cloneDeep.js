@@ -361,9 +361,6 @@ const isArrayLike = (value) => value != null && isLength(value.length) && !isFun
 const isArguments = (value) => {
     const argsTag = '[object Arguments]'
     return isObjectLike(value) && getTag(value) == argsTag
-    // return isObjectLike(value)
-    //     && Object.prototype.hasOwnProperty.call(value, 'callee')
-    //     && Object.prototype.propertyIsEnumerable.call(value, 'callee')
 }
 
 const isPrototype = (value) => {

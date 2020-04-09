@@ -173,7 +173,7 @@ console.log(result)`,
   debounce: `const scrollHandler = function()  {
     console.log(this.scrollY)
   }
-  window.onscroll = debounce(scrollHandler)`,
+  window.onscroll = debounce(scrollHandler, 500)`,
 }
 
 export default codemap

@@ -53,6 +53,8 @@
                 v-if="mode === 'debounce'">
         <a-select-option value="debounce">debounce</a-select-option>
         <a-select-option value="throttle">throttle</a-select-option>
+        <a-select-option value="_debounce">_.debounce</a-select-option>
+        <a-select-option value="_throttle">_.throttle</a-select-option>
       </a-select>
       <a-button type="primary"
                 size="small"
@@ -152,6 +154,7 @@
   } catch (error) {}
 
   let cloneDeepSelectMemroy = 'cloneDeep'
+  let debounceSelectMemroy = 'debounce'
 
   export default {
   	components: {
@@ -238,7 +241,8 @@
       },
       debounceSelect(e) {
   			const { key } = e
-  			this.codeToggle(key, 'debounce', 'throttle')
+        this.codeToggle(key, debounceSelectMemroy, key)
+        debounceSelectMemroy = key
   		},
   		run() {
   			clearTimeout(this.computTimer)
