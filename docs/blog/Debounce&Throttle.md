@@ -239,3 +239,5 @@ export default function throttle(func, wait = 0, options) {
 ```
 
 <CodeTest mode='debounce' />
+
+<vTalk />

@@ -254,5 +254,15 @@ export default {
       path: "/blog/Debounce&Throttle.html",
       level: 1,
     },
+    {
+      id: "深度优先和广度优先",
+      path: "/blog/DFS&BFS.html",
+      level: 1,
+    },
+    {
+      id: "隐式转换",
+      path: "/blog/implicitOperate.html",
+      level: 1,
+    },
   ],
 }

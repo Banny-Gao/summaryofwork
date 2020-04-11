@@ -67,3 +67,5 @@ export const curry = (func, ...arity) => (...args) => (
 <CodeTest mode='curry' />
 
 参考链接:  [简述几个非常有用的柯里化函数使用场景](https://segmentfault.com/a/1190000015281061),[用场景去理解函数柯里化](https://www.yuque.com/robinson/jser/tqlyp1)
+
+<vTalk />
