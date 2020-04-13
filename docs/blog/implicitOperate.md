@@ -1,7 +1,10 @@
 # 隐式转换知多少
 
+Js中的隐式转换常常是前端开发的痛点，日常开发中，我们大概知道不同数据类型在不同操作中会有隐式转换的概念。那么，隐式转换的规则到底是什么，以及具体到细节的隐式转换的场景有哪些？  
+带着疑问，翻了翻MDN，整理了一些基础的东西。
+
 - 原始类型的转换（[string，number，bigint，boolean，null，undefined，symbol]），通常使用转换函数String， Number， Boolean
-- 非原始类型，根据运算符和上下文，按需转原始类型[ToPrimitive](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)
+- 当一个对象转换为对应的原始值时，根据运算符和上下文，调用函数[ToPrimitive](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)
 - 预期转换类型为Number或默认值时，依次尝试valueOf与toString进行转换
 - 预期值为String时，依次尝试toString和valueOf进行转换
 - [Symbol.toPrimitive]方法存在时会干扰预期转换
@@ -226,8 +229,9 @@ undefined * null // NaN
 
 ## 相等 (==) 与 不相等 (!=)
 
-- 两个操作数转换成相同的类型,再做比较
-- 对于关系运算符（比如 <=）来说，会先将操作数转为原始值，使它们类型相同，再进行比较运算。
+- 两个操作数转换成相同的类型, 再做比较
+- 对于关系运算符（比如 <=)来说，会先将操作数转为原始值，使它们类型相同，再进行比较运算。
+- 类型相同的非原始类型，比较内存中的地址
 
 ```javascript
 false == [] // true
@@ -236,6 +240,10 @@ false == [] // true
 [1] == 1   //  true
 NaN == NaN  // false
 {} != NaN  // false
+[] == []  // false, 内存地址不同
+{} == {} // false，内存地址不同
+![] == [] // true, hint为number -> false == 0 -> 0 == 0
+!{} == {} // false, false == NaN -> 0 == NaN
 ```
 
 <font color='#597ef7'>隐式转换知多少？隐式转换不知道还有多少！</font>
