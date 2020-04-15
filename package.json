@@ -8,12 +8,12 @@
     "start": "npm run dev",
     "clean": "rimraf dist/*",
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "deploy.bat"
+    "build": "vuepress build docs"
   },
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
+    "core-js": "2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "lodash": "^4.17.15",
@@ -36,6 +36,6 @@
     "velocity-animate": "^1.5.2",
     "view-design": "^4.1.2",
     "vue-codemirror": "^4.0.6",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.4.1"
   }
 }
