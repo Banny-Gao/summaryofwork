@@ -56,6 +56,7 @@ export class BFS {
         })
       }
       if (stack.length) result = map(stack, result)
+      return result
     }
     return map(this.data)
   }
