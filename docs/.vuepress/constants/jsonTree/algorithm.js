@@ -33,18 +33,6 @@ export default {
       id: "有效的括号",
       path: "/algorithm/isValid.html",
       level: 1,
-      children: [
-        {
-          id: "先存后取",
-          path: "/algorithm/isValid.html#先存后取",
-          level: 2,
-        },
-        {
-          id: "边存边取",
-          path: "/algorithm/isValid.html#边存边取",
-          level: 2,
-        },
-      ],
     },
     {
       id: "最长公共前缀",
@@ -127,6 +115,18 @@ export default {
       id: "重构字符串",
       path: "/algorithm/reorganizeString.html",
       level: 1,
+      children: [
+        {
+          id: "排序优先",
+          path: "/algorithm/reorganizeString.html#排序插入",
+          level: 2,
+        },
+        {
+          id: "贪心堆",
+          path: "/algorithm/reorganizeString.html#贪心堆",
+          level: 2,
+        },
+      ],
     },
   ],
 }

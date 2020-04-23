@@ -164,28 +164,14 @@ export default {
           contextmenuDiv.remove()
         },
         onNodeContextmenu(e) {
+          e.preventDefault()
+          console.log(e)
           const item = e.item
           contextmenuDiv.innerHTML = `view`
           _this.$refs.graph.append(contextmenuDiv)
 
-          const width = _this.$refs.graph.width
-          const height = _this.$refs.graph.height
-          let x = e.canvasX
-          let y = e.canvasY
-
-          const bbox = contextmenuDiv.getBoundingClientRect()
-          if (x > width / 2) {
-            x -= bbox.width
-          } else {
-            x += 16
-          }
-          if (y > height / 2) {
-            y -= bbox.height
-          } else {
-            y += 16
-          }
-          contextmenuDiv.style.left = `${x}px`
-          contextmenuDiv.style.top = `${y}px`
+          contextmenuDiv.style.left = `${e.clientX - 25 }px`
+          contextmenuDiv.style.top = `${e.clientY - 15 }px`
 
           contextmenuDiv.onclick = evt => {
             evt.stopPropagation()
@@ -233,7 +219,7 @@ export default {
           ]
         },
         defaultNode: {
-          shape: "tree-node",
+          type: "tree-node",
           anchorPoints: [
             [0, 0.5],
             [1, 0.5]
@@ -244,7 +230,7 @@ export default {
           }
         },
         defaultEdge: {
-          shape: "cubic-horizontal",
+          type: "cubic-horizontal",
           style: {
             stroke: "#A3B1BF"
           }
@@ -317,7 +303,7 @@ export default {
 </script>
 <style lang="scss">
 .g6-tooltip {
-  padding: 4px;
+  padding:0 10px;
   color: #444;
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #e2e2e2;
