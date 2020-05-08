@@ -189,7 +189,7 @@ console.log(result)`,
     console.time('BFS递归')
     bfs.getValuesRecursive('name')
     console.timeEnd('BFS递归')
-  })`
+  })`,
 }
 
 export default codemap
