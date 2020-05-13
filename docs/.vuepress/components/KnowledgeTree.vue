@@ -165,7 +165,6 @@ export default {
         },
         onNodeContextmenu(e) {
           e.preventDefault()
-          console.log(e)
           const item = e.item
           contextmenuDiv.innerHTML = `view`
           _this.$refs.graph.append(contextmenuDiv)
@@ -213,7 +212,6 @@ export default {
                 return true
               }
             },
-            "drag-canvas",
             "zoom-canvas",
             "contextmenu-view"
           ]
