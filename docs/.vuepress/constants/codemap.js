@@ -190,6 +190,8 @@ console.log(result)`,
     bfs.getValuesRecursive('name')
     console.timeEnd('BFS递归')
   })`,
+  lengthOfLongestSubstring: `const max = lengthOfLongestSubstring('abcabcbb')
+console.log(max)`,
 }
 
 export default codemap
