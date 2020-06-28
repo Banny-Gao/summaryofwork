@@ -192,6 +192,8 @@ console.log(result)`,
   })`,
   lengthOfLongestSubstring: `const max = lengthOfLongestSubstring('abcabcbb')
 console.log(max)`,
+  checkInclusion: `const isCheckIn = checkInclusion ("abcdxabcde", "abcdeabcdx")
+console.log(isCheckIn)`,
 }
 
 export default codemap

@@ -133,5 +133,10 @@ export default {
       path: "/algorithm/lengthOfLongestSubstring.html",
       level: 1,
     },
+    {
+      id: "字符串的排列",
+      path: "/algorithm/checkInclusion.html",
+      level: 1,
+    },
   ],
 }
