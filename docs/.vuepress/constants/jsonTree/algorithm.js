@@ -138,5 +138,10 @@ export default {
       path: "/algorithm/checkInclusion.html",
       level: 1,
     },
+    {
+      id: "两数相加",
+      path: "/algorithm/addTwoNumbers.html",
+      level: 1,
+    },
   ],
 }
