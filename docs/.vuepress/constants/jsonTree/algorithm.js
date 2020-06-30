@@ -148,5 +148,10 @@ export default {
       path: "/algorithm/mergeTwoLists.html",
       level: 1,
     },
+    {
+      id: "反转链表",
+      path: "/algorithm/reverseList.html",
+      level: 1,
+    },
   ],
 }

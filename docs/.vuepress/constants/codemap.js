@@ -237,7 +237,23 @@ console.log(isCheckIn)`,
   }
   
   const res = mergeTwoLists(l1, l2)
-  console.log(res)`
+  console.log(res)`,
+  reverseList: `var list = {
+    val: 1,
+    next: {
+      val: 2,
+      next: {
+        val: 3,
+        next: {
+          val: 4,
+          next: null
+        }
+      }
+    }
+  }
+  const result = reverseList(list)
+  console.log(result);
+  `
 }
 
 export default codemap
