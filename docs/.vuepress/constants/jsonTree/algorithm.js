@@ -143,5 +143,10 @@ export default {
       path: "/algorithm/addTwoNumbers.html",
       level: 1,
     },
+    {
+      id: "合并两个有序链表",
+      path: "/algorithm/mergeTwoLists.html",
+      level: 1,
+    },
   ],
 }

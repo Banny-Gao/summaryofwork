@@ -215,7 +215,29 @@ console.log(isCheckIn)`,
   }
   
   const result =  addTwoNumbers(l1, l2)
-  console.log(result)`
+  console.log(result)`,
+  mergeTwoLists: `var l1 = {
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: 4
+      }
+    }
+  }
+  
+  var l2 = {
+    val: 1,
+    next: {
+      val: 3,
+      next: {
+        val: 5
+      }
+    }
+  }
+  
+  const res = mergeTwoLists(l1, l2)
+  console.log(res)`
 }
 
 export default codemap
