@@ -153,5 +153,10 @@ export default {
       path: "/algorithm/reverseList.html",
       level: 1,
     },
+    {
+      id: "合并K个排序链表",
+      path: "/algorithm/mergeKLists.html",
+      level: 1,
+    },
   ],
 }

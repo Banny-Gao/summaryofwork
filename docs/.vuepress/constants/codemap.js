@@ -253,7 +253,38 @@ console.log(isCheckIn)`,
   }
   const result = reverseList(list)
   console.log(result);
-  `
+  `,
+  mergeKLists: `var lists = [
+    {
+      val: 1,
+      next: {
+        val: 4,
+        next: {
+          val: 5,
+          next: null
+        }
+      }
+    },
+    {
+      val: 1,
+      next: {
+        val: 3,
+        next: {
+          val: 4,
+          next: null
+        }
+      }
+    },
+    {
+      val: 2,
+      next: {
+        val: 6,
+        next: null
+      }
+    },
+  ]
+  
+  console.log(mergeKLists(lists))`
 }
 
 export default codemap
