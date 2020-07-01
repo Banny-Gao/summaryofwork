@@ -56,6 +56,15 @@
         <a-select-option value="_debounce">_.debounce</a-select-option>
         <a-select-option value="_throttle">_.throttle</a-select-option>
       </a-select>
+      <a-select labelInValue
+                :defaultValue="{ key: 'mergeKLists' }"
+                style="width: 140px;margin-right: 14px;"
+                @change="mergeKListsSelect"
+                v-if="mode === 'mergeKLists'">
+        <a-select-option value="mergeKLists">mergeKLists</a-select-option>
+        <a-select-option value="mergeKLists_sort">mergeKLists_sort</a-select-option>
+        <a-select-option value="mergeKLists_merge">mergeKLists_merge</a-select-option>
+      </a-select>
       <a-button type="primary"
                 size="small"
                 @click="run">运行</a-button>
@@ -155,6 +164,7 @@
 
   let cloneDeepSelectMemroy = 'cloneDeep'
   let debounceSelectMemroy = 'debounce'
+  let mergeKListsSelectMemroy = 'mergeKLists'
 
   export default {
   	components: {
@@ -243,7 +253,12 @@
   			const { key } = e
         this.codeToggle(key, debounceSelectMemroy, key)
         debounceSelectMemroy = key
-  		},
+      },
+      mergeKListsSelect(e) {
+        const { key } = e
+        this.codeToggle(key, mergeKListsSelectMemroy, key)
+        mergeKListsSelectMemroy = key
+      },
   		run() {
   			clearTimeout(this.computTimer)
   			const that = this
