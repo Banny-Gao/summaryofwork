@@ -1,3 +1,5 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 const path = require('path')
 const {
   getTimeEmoj,
@@ -68,5 +70,9 @@ module.exports = {
       md.use(require('markdown-it-katex'))
     }
   },
-  plugins: ['@vuepress/back-to-top']
+  plugins: ['@vuepress/back-to-top'],
+  chainWebpack (config) {
+    // config 是一个 ChainableConfig 的实例
+    config.plugin('analyzer').use(BundleAnalyzerPlugin)
+  }
 }

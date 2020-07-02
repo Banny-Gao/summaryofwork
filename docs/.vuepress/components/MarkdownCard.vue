@@ -29,7 +29,7 @@ export default {
   border 1px solid #eee
   border-radius 0.5rem
   box-shadow 0 5px 15px -5px rgba(0,0,0,.2)
-  padding 0.5rem 1.5rem
+  padding 0.5rem 0.5rem
   margin-top 1em
   min-height 100px
   display flex

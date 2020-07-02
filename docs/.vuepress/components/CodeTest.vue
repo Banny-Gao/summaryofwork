@@ -130,7 +130,6 @@
 </template>
 
 <script>
-import _ from "lodash"
 import Button from "ant-design-vue/lib/button"
 import Form from "ant-design-vue/lib/form/Form"
 import FormItem from "ant-design-vue/lib/form/FormItem"

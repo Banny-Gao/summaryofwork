@@ -1,5 +1,4 @@
 export * from './_.cloneDeep'
-// export { cloneDeep } from 'lodash-es'
 
 export const cloneDeep_JSON = (obj) => JSON.parse(JSON.stringify(obj))
 

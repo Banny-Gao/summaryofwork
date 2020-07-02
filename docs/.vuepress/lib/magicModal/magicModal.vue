@@ -42,8 +42,6 @@
 </template>
 <script>
   import TransferDom from 'view-design/src/directives/transfer-dom'
-  import 'magic.css/dist/magic.min.css'
-  import 'animate.css/animate.min.css'
 
   export default {
   	name: 'magicModal',
@@ -158,12 +156,12 @@
   	},
   	methods: {
   		maskEnter(el, done) {
-  			this.$velocity(el, 'fadeIn', { duration: 400 })
+  			window.Velocity(el, 'fadeIn', { duration: 400 })
   		},
   		maskLeave(el, done) {
   			const timer = setTimeout(() => {
   				clearTimeout(timer)
-  				this.$velocity(el, 'fadeOut', { duration: 400, delay: 200 })
+  				window.Velocity(el, 'fadeOut', { duration: 400, delay: 200 })
   			}, this.duration - 200 || 0)
   		},
   		contentEnter(el, done) {

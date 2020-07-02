@@ -1,11 +1,7 @@
 import Antd from 'ant-design-vue';
-import {creatLoadTag} from './util/util'
+import { creatLoadTag } from './util/util'
 import vTalk from './lib/vTalk'
 import magicModal from './lib/magicModal'
-
-try {
-  var Velocity = require('velocity-animate')
-} catch (error) {}
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -21,10 +17,11 @@ export default ({
   
   Vue.use(vTalk)
   Vue.use(magicModal)
-  Vue.prototype.$velocity = Velocity
   
   try {
     creatLoadTag('link', 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css')
+    creatLoadTag('link', 'https://unpkg.com/animate.css@4.1.0/animate.css')
+    creatLoadTag('link', 'https://unpkg.com/magic.css@1.4.5/dist/magic.min.css')
     creatLoadTag('css', 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css')
     creatLoadTag('js', 'https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js')
   } catch (error) {}
