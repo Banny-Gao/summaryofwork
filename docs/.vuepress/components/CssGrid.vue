@@ -1,12 +1,12 @@
 <template>
-  <div class="grid-wraper">
-    <div class="control-con">
+  <Row class="grid-wraper">
+    <Col :xd="24" :xl="12">
       <Tabs>
         <TabPane label="Grid Container">
           <Row>
             <Col :span="24" class="flex align-center">
               <span class="label">display:</span>
-              <RadioGroup v-model="containerStyle.display">
+              <RadioGroup class="flex-1" v-model="containerStyle.display">
                 <Radio :label="item" v-for="item of display" :key="item">{{
                   item
                 }}</Radio>
@@ -261,8 +261,8 @@
           </Collapse>
         </TabPane>
       </Tabs>
-    </div>
-    <div class="grid-container" :style="computeContainerStyle">
+    </Col>
+    <Col :xd="24" :xl="12" class="grid-container m-t-10" :style="computeContainerStyle">
       <div
         v-for="(item, index) of gridItems"
         :key="index"
@@ -271,8 +271,8 @@
       >
         {{ `Item-${index}` }}
       </div>
-    </div>
-  </div>
+    </Col>
+  </Row>
 </template>
 <script>
 import "./styles/grid-iview-normanize.scss"
@@ -468,36 +468,10 @@ export default {
   margin-bottom: 10px;
 }
 .grid-wraper {
-  display: flex;
   font-size: 1em;
   padding: 0.8em;
   border-radius: 4px;
   border: 1px solid #ccc;
-  .control-con {
-    box-sizing: border-box;
-    width: 50%;
-  }
-  .grid-container {
-    flex: 1;
-    box-sizing: border-box;
-  }
-  .control-con {
-    padding-right: 0.8em;
-    padding-bottom: 1em;
-  }
-  .ivu-radio-wrapper {
-    font-size: 1em;
-    font-family: "Comic Sans MS", cursive, "Jost";
-  }
-  .ivu-divider-horizontal {
-    margin: 12px 0;
-    width: calc(100% - 0.5em);
-    min-width: calc(100% - 0.5em);
-  }
-  .ivu-select,
-  .ivu-input-wrapper {
-    flex: 1;
-  }
   .label {
     font-size: 1.2em;
     display: inline-block;
@@ -505,6 +479,8 @@ export default {
     flex: 0.6;
   }
   .grid-container {
+    min-height: 400px;
+    padding: 0 0.8em;
     transition: all 0.2s linear;
     .item {
       color: #fff;

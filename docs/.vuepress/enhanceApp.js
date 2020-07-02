@@ -5,9 +5,7 @@ import magicModal from './lib/magicModal'
 
 try {
   var Velocity = require('velocity-animate')
-} catch (error) {
-  
-}
+} catch (error) {}
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -29,7 +27,5 @@ export default ({
     creatLoadTag('link', 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css')
     creatLoadTag('css', 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css')
     creatLoadTag('js', 'https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js')
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 }
