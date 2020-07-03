@@ -17,23 +17,19 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "lodash": "^4.17.15",
-    "lodash-es": "^4.17.15",
     "node-sass": "^4.13.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "webpack-bundle-analyzer": "^3.8.0"
   },
   "dependencies": {
-    "@antv/g6": "^3.2.5",
-    "animate.css": "^3.7.2",
+    "@antv/g6": "^3.5.9",
     "ant-design-vue": "^1.3.13",
     "gitalk": "^1.5.0",
-    "html-pdf-adaptive": "0.0.2",
-    "magic.css": "^1.4.1",
     "markdown-it": "^8.4.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-katex": "^2.0.3",
     "node-emoji": "^1.10.0",
     "simple-web-worker": "^1.2.0",
-    "velocity-animate": "^1.5.2",
     "view-design": "^4.1.2",
     "vue-codemirror": "^4.0.6",
     "vuepress": "^1.4.1"

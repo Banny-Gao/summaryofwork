@@ -284,7 +284,9 @@ console.log(isCheckIn)`,
     },
   ]
   
-  console.log(mergeKLists(lists))`
+  console.log(mergeKLists(lists))`,
+  dailyTemperatures: `const res = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
+  console.log(res)`
 }
 
 export default codemap
