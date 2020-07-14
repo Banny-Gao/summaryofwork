@@ -2,6 +2,8 @@ import Antd from 'ant-design-vue';
 import { creatLoadTag } from './util/util'
 import vTalk from './lib/vTalk'
 import magicModal from './lib/magicModal'
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -17,6 +19,12 @@ export default ({
   
   Vue.use(vTalk)
   Vue.use(magicModal)
+
+  Vue.use(Viewer, {
+    defaultOptions: {
+      zIndex: 9999
+    }
+  })
   
   try {
     creatLoadTag('link', 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css')

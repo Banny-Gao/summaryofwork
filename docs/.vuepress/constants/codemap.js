@@ -286,7 +286,11 @@ console.log(isCheckIn)`,
   
   console.log(mergeKLists(lists))`,
   dailyTemperatures: `const res = dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
-  console.log(res)`
+  console.log(res)`,
+  findIntegers: `console.time()
+  const result = findIntegers(123456789)
+  console.log(result)
+  console.timeEnd()`
 }
 
 export default codemap

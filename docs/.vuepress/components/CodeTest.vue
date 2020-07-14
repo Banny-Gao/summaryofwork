@@ -87,6 +87,21 @@
           >mergeKLists_merge</a-select-option
         >
       </a-select>
+      <a-select
+        labelInValue
+        :defaultValue="{ key: 'findIntegers' }"
+        style="width: 200px;margin-right: 14px;"
+        @change="findIntegersSelect"
+        v-if="mode === 'findIntegers'"
+      >
+        <a-select-option value="findIntegers">findIntegers</a-select-option>
+        <a-select-option value="findIntegers_timeout"
+          >findIntegers_timeout</a-select-option
+        >
+        <a-select-option value="findIntegers_optimize"
+          >findIntegers_optimize</a-select-option
+        >
+      </a-select>
       <a-button type="primary" size="small" @click="run">运行</a-button>
     </div>
     <a-row class="codemirror_con" :gutter="14">
@@ -189,6 +204,7 @@ try {
 let cloneDeepSelectMemroy = "cloneDeep"
 let debounceSelectMemroy = "debounce"
 let mergeKListsSelectMemroy = "mergeKLists"
+let findIntegersSelectMemroy = "findIntegers"
 
 export default {
   components: {
@@ -282,6 +298,11 @@ export default {
       const { key } = e
       this.codeToggle(key, mergeKListsSelectMemroy, key)
       mergeKListsSelectMemroy = key
+    },
+    findIntegersSelect(e) {
+      const { key } = e
+      this.codeToggle(key, findIntegersSelectMemroy, key)
+      findIntegersSelectMemroy = key
     },
     run() {
       clearTimeout(this.computTimer)

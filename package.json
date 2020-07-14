@@ -30,6 +30,7 @@
     "markdown-it-katex": "^2.0.3",
     "node-emoji": "^1.10.0",
     "simple-web-worker": "^1.2.0",
+    "v-viewer": "^1.5.1",
     "view-design": "^4.1.2",
     "vue-codemirror": "^4.0.6",
     "vuepress": "^1.4.1"
