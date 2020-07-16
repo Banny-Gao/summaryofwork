@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-pwa": "^1.5.2",
     "core-js": "2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -22,9 +23,10 @@
     "webpack-bundle-analyzer": "^3.8.0"
   },
   "dependencies": {
-    "@antv/g6": "^3.5.9",
+    "@antv/g6": "^3.5.10",
     "ant-design-vue": "^1.3.13",
     "gitalk": "^1.5.0",
+    "insert-css": "^2.0.0",
     "markdown-it": "^8.4.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-katex": "^2.0.3",
