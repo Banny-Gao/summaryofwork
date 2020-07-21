@@ -191,16 +191,16 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
 <Table  style="margin-bottom: 20px;" :tableProp="{
   columns: [
     { title: 'Index', dataIndex: 'index', fixed: 'left', width: 80,},
-    { title: '0', dataIndex: '0 '},
-    { title: '1', dataIndex: '1 '},
-    { title: '2', dataIndex: '2 '},
-    { title: '3', dataIndex: '3 '},
-    { title: '4', dataIndex: '4 '},
-    { title: '5', dataIndex: '5 '},
-    { title: '6', dataIndex: '6 '},
-    { title: '7', dataIndex: '7 '},
-    { title: '8', dataIndex: '8 '},
-    { title: '9', dataIndex: '9 '},
+    { title: '0', dataIndex: '0'},
+    { title: '1', dataIndex: '1'},
+    { title: '2', dataIndex: '2'},
+    { title: '3', dataIndex: '3'},
+    { title: '4', dataIndex: '4'},
+    { title: '5', dataIndex: '5'},
+    { title: '6', dataIndex: '6'},
+    { title: '7', dataIndex: '7'},
+    { title: '8', dataIndex: '8'},
+    { title: '9', dataIndex: '9'},
     { title: '10', dataIndex: '10' }
   ],
   data: [
