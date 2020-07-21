@@ -124,11 +124,6 @@ export default {
       level: 1,
     },
     {
-      id: "vue magic modal",
-      path: "/blog/magicModal.html",
-      level: 1,
-    },
-    {
       id: "大顶堆实现",
       path: "/blog/maxHeap.html",
       level: 1,

@@ -185,17 +185,17 @@ undefined * null // NaN
 
 <Table :tableProp="{
     columns: [
-    { title: '运算符', key: 'index', width: 220 },
-    { title: '用法', key: 'base', width: 220 },
-    { title: '描述', key: 'desc'},
+    { title: '运算符', dataIndex: 'index', fixed: 'left', width: 80,},
+    { title: '用法', dataIndex: 'base'},
+    { title: '描述', dataIndex: 'desc'},
   ],
   data: [
-    {index: '按位与(AND)', base: 'a & b', desc: '对于每一个比特位，只有两个操作数相应的比特位都是1时，结果才为1，否则为0。'},
-    {index: '按位或(OR)', base: 'a | b', desc: '对于每一个比特位，当两个操作数相应的比特位至少有一个1时，结果为1，否则为0。'},
-    {index: '按位异或(XOR)', base: 'a ^ b', desc: '对于每一个比特位，当两个操作数相应的比特位有且只有一个1时，结果为1，否则为0。'},
-    {index: '左移(Left shift)', base: 'a &lt;&lt; b', desc: '将 a 的二进制形式向左移 b (< 32) 比特位，右边用0填充。'},
-    {index: '有符号右移', base: 'a &gt;&gt; b', desc: '将 a 的二进制表示向右移 b (< 32) 位，丢弃被移出的位。'},
-    {index: '无符号右移', base: 'a &gt;&gt;&gt; b', desc: '将 a 的二进制表示向右移 b (< 32) 位，丢弃被移出的位，并使用 0 在左侧填充。'},
+    {key: '0', index: '按位与(AND)', base: 'a & b', desc: '对于每一个比特位，只有两个操作数相应的比特位都是1时，结果才为1，否则为0。'},
+    {key: '1', index: '按位或(OR)', base: 'a | b', desc: '对于每一个比特位，当两个操作数相应的比特位至少有一个1时，结果为1，否则为0。'},
+    {key: '2', index: '按位异或(XOR)', base: 'a ^ b', desc: '对于每一个比特位，当两个操作数相应的比特位有且只有一个1时，结果为1，否则为0。'},
+    {key: '3', index: '左移(Left shift)', base: 'a &lt;&lt; b', desc: '将 a 的二进制形式向左移 b (< 32) 比特位，右边用0填充。'},
+    {key: '4', index: '有符号右移', base: 'a &gt;&gt; b', desc: '将 a 的二进制表示向右移 b (< 32) 位，丢弃被移出的位。'},
+    {key: '5', index: '无符号右移', base: 'a &gt;&gt;&gt; b', desc: '将 a 的二进制表示向右移 b (< 32) 位，丢弃被移出的位，并使用 0 在左侧填充。'},
   ],
   border: false
 }" />

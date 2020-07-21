@@ -137,18 +137,18 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
 
 <Table  style="margin-bottom: 20px;" :tableProp="{
   columns: [
-    { title: 'Index', key: 'index', width: 120 },
-    { title: '0', key: 0 },
-    { title: '1', key: 1 },
-    { title: '2', key: 2 },
-    { title: '3', key: 3 },
-    { title: '4', key: 4 },
-    { title: '5', key: 5 },
-    { title: '6', key: 6 },
-    { title: '7', key: 7 },
-    { title: '8', key: 8 },
-    { title: '9', key: 9 },
-    { title: '10', key: 10 }
+    { title: 'Index', dataIndex: 'index', fixed: 'left', width: 80,},
+    { title: '0', dataIndex: '0' },
+    { title: '1', dataIndex: '1' },
+    { title: '2', dataIndex: '2' },
+    { title: '3', dataIndex: '3' },
+    { title: '4', dataIndex: '4' },
+    { title: '5', dataIndex: '5' },
+    { title: '6', dataIndex: '6' },
+    { title: '7', dataIndex: '7' },
+    { title: '8', dataIndex: '8' },
+    { title: '9', dataIndex: '9' },
+    { title: '10', dataIndex: '10' }
   ],
   data: [
     {
@@ -156,9 +156,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         0: 1,
         1: 1,
         2: 2,
-        cellClassName: {
-          '2': 'active'
-        }
+        key: 0,
     },
     {
       'index': 'Arr2',
@@ -168,9 +166,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         3: 8,
         4: 9,
         5: 12,
-        cellClassName: {
-          '1': 'active'
-        }
+        key: 1,
     },
     {
       'index': 'Arr1+Arr2',
@@ -183,12 +179,9 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         6: 8,
         7: 9,
         8: 12,
-        cellClassName: {
-          '4': 'active'
-        }
+        key: 2,
     }
   ],
-  border: false
 }" />  
 肉眼观察： 
 - Arr1 + Arr2两个数组的中位数为 **7**  
@@ -197,18 +190,18 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
 肉眼再观察： 
 <Table  style="margin-bottom: 20px;" :tableProp="{
   columns: [
-    { title: 'Index', key: 'index', width: 120 },
-    { title: '0', key: 0 },
-    { title: '1', key: 1 },
-    { title: '2', key: 2 },
-    { title: '3', key: 3 },
-    { title: '4', key: 4 },
-    { title: '5', key: 5 },
-    { title: '6', key: 6 },
-    { title: '7', key: 7 },
-    { title: '8', key: 8 },
-    { title: '9', key: 9 },
-    { title: '10', key: 10 }
+    { title: 'Index', dataIndex: 'index', fixed: 'left', width: 80,},
+    { title: '0', dataIndex: '0 '},
+    { title: '1', dataIndex: '1 '},
+    { title: '2', dataIndex: '2 '},
+    { title: '3', dataIndex: '3 '},
+    { title: '4', dataIndex: '4 '},
+    { title: '5', dataIndex: '5 '},
+    { title: '6', dataIndex: '6 '},
+    { title: '7', dataIndex: '7 '},
+    { title: '8', dataIndex: '8 '},
+    { title: '9', dataIndex: '9 '},
+    { title: '10', dataIndex: '10' }
   ],
   data: [
     {
@@ -218,9 +211,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         2: 4,
         3: 5,
         4: 7,
-        cellClassName: {
-          '2': 'active'
-        }
+        key: 0,
     },
     {
       'index': 'Arr2',
@@ -230,10 +221,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         3: 4,
         4: 7,
         5: 12,
-        cellClassName: {
-          '2': 'active',
-          '3': 'active'
-        }
+        key: 1,
     },
     {
       'index': 'Arr1+Arr2',
@@ -248,26 +236,23 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         8: 7,
         9: 7,
         10: 12,
-        cellClassName: {
-          '5': 'active'
-        }
+        key: 2,
     }
   ],
-  border: false
 }" />  
 <Table  style="margin-bottom: 20px;" :tableProp="{
   columns: [
-    { title: 'Index', key: 'index', width: 120 },
-    { title: '0', key: 0 },
-    { title: '1', key: 1 },
-    { title: '2', key: 2 },
-    { title: '3', key: 3 },
-    { title: '4', key: 4 },
-    { title: '5', key: 5 },
-    { title: '6', key: 6 },
-    { title: '7', key: 7 },
-    { title: '8', key: 8 },
-    { title: '9', key: 9 }
+    { title: 'Index', dataIndex: 'index', fixed: 'left', width: 80,},
+    { title: '0', dataIndex: '0' },
+    { title: '1', dataIndex: '1' },
+    { title: '2', dataIndex: '2' },
+    { title: '3', dataIndex: '3' },
+    { title: '4', dataIndex: '4' },
+    { title: '5', dataIndex: '5' },
+    { title: '6', dataIndex: '6' },
+    { title: '7', dataIndex: '7' },
+    { title: '8', dataIndex: '8' },
+    { title: '9', dataIndex: '9' }
   ],
   data: [
     {
@@ -276,10 +261,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         1: 5,
         2: 13,
         3: 14,
-        cellClassName: {
-          '1': 'active',
-          '2': 'active',
-        }
+        key: 0,
     },
     {
       'index': 'Arr2',
@@ -289,10 +271,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         3: 8,
         4: 9,
         5: 10,
-        cellClassName: {
-          '2': 'active',
-          '3': 'active'
-        }
+        key: 1,
     },
     {
       'index': 'Arr1+Arr2',
@@ -306,13 +285,9 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
         7: 10,
         8: 13,
         9: 14,
-        cellClassName: {
-          '4': 'active',
-          '5': 'active'
-        }
+        key: 2,
     }
   ],
-  border: false
 }" />  
 也就是说我们将两个数组切成两段  
 

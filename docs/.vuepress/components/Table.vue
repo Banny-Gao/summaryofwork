@@ -1,12 +1,8 @@
 <template>
-  <Table v-bind="tableProp"></Table>
+  <a-table :columns="tableProp.columns" :dataSource="tableProp.data" :pagination="false" size="small" :scroll="{ x: 'calc(50% + 300px)'}" />
 </template>
 <script>
-import { Table } from "view-design"
 export default {
-  components: {
-    Table
-  },
   props: {
     tableProp: {}
   },
@@ -19,8 +15,5 @@ export default {
 <style lang="scss">
 body {
   font-size: 14px !important;
-}
-.ivu-table td.active {
-  color: #ff5722 !important;
 }
 </style>

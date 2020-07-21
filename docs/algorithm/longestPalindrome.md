@@ -116,33 +116,32 @@ Manacher算法，是一种线性时间的方法。引入一个技巧，可以使
 
 <Table  style="margin-bottom: 20px;" :tableProp="{
   columns: [
-    { title: 'S', key: 'S' },
-    { title: '#', key: 'key1' },
-    { title: 'a', key: 'a1' },
-    { title: '#', key: 'key2' },
-    { title: 'b', key: 'b1' },
-    { title: '#', key: 'key3' },
-    { title: 'b', key: 'b2' },
-    { title: '#', key: 'key4' },
-    { title: 'a', key: 'a1' },
-    { title: '#', key: 'key5' }
+    { title: 'S', dataIndex: 'S', fixed: 'left', width: 80,},
+    { title: '#', dataIndex: 'key1' },
+    { title: 'a', dataIndex: 'a1' },
+    { title: '#', dataIndex: 'key2' },
+    { title: 'b', dataIndex: 'b1' },
+    { title: '#', dataIndex: 'key3' },
+    { title: 'b', dataIndex: 'b2' },
+    { title: '#', dataIndex: 'key4' },
+    { title: 'a', dataIndex: 'a1' },
+    { title: '#', dataIndex: 'key5' }
   ],
   data: [
     {
-        S: 'P',
-        key1: '1',
-        key2: '1',
-        key3: '5',
-        key4: '1',
-        key5: '1',
-        a1: '2',
-        a1: '2',
-        b1: '2',
-        b2: '2'
+      S: 'P',
+      key1: '1',
+      key2: '1',
+      key3: '5',
+      key4: '1',
+      key5: '1',
+      a1: '2',
+      a1: '2',
+      b1: '2',
+      b2: '2',
+      key: '0'
     }
   ],
-  width: '600',
-  border: false
 }" />  
 
 数组 P[i] 来记录以字符S[i]为中心的最长回文子串向左/右扩张的长度.

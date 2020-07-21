@@ -110,7 +110,7 @@
       </a-col>
       <a-col class="m-t-10" :xs="24" :sm="24" :xl="12">
         <div class="result_con">
-          <Spin fix size="large" v-if="isCompute"></Spin>
+          <a-spin v-if="isCompute" />
           <template v-for="(item, i) of resultText">
             <p v-if="item && item.type === 'time'" :key="i">
               {{ item.name }}：{{ item.value }}ms
@@ -145,14 +145,6 @@
 </template>
 
 <script>
-import Button from "ant-design-vue/lib/button"
-import Form from "ant-design-vue/lib/form/Form"
-import FormItem from "ant-design-vue/lib/form/FormItem"
-import Input from "ant-design-vue/lib/input"
-import Select from "ant-design-vue/lib/select"
-import Table from "ant-design-vue/lib/table"
-import Alert from "ant-design-vue/lib/alert"
-import { Spin } from "view-design"
 
 import CodeMap from "../constants/codemap"
 
@@ -209,14 +201,6 @@ let findIntegersSelectMemroy = "findIntegers"
 export default {
   components: {
     codemirror,
-    aAlert: Alert,
-    aButton: Button,
-    aInput: Input,
-    aTable: Table,
-    [Select.name]: Select,
-    [Select.Option.name]: Select.Option,
-    [Select.OptGroup.name]: Select.OptGroup,
-    Spin,
   },
   props: {
     mode: {
