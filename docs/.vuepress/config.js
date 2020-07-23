@@ -28,22 +28,22 @@ module.exports = {
     },
     {
       text: navTitle,
-      link: '/blog/'
+      link: '/timeLine/'
     },
     {
       text: 'Learning',
+      link: '/learning/'
+    },
+    {
+      text: 'Reading',
       items: [{
-        text: '📚读书',
+        text: '📚',
         link: '/bookReading/'
       },
       {
-        text: '📂资源',
+        text: '📂',
         link: '/resource/'
       },
-      {
-        text: '📃文章',
-        link: '/article/'
-      }
       ]
     },
     {
@@ -56,11 +56,9 @@ module.exports = {
     }
     ],
     sidebar: {
-      '/nav/': getMdMap(path.join('nav')),
-      '/blog/': getMdMap(path.join('blog')),
+      '/learning/': getMdMap(path.join('learning')),
       '/bookReading/': getMdMap(path.join('bookReading')),
       '/resource/': getMdMap(path.join('resource')),
-      '/article/': getMdMap(path.join('article')),
       '/algorithm/': getMdMap(path.join('algorithm'))
     }
   },
@@ -80,7 +78,7 @@ module.exports = {
       updatePopup: true
     }
   },
-  chainWebpack (config) {
+  chainWebpack(config) {
     if (process.env.NODE_ENV === 'development') {
       config.plugin('analyzer').use(BundleAnalyzerPlugin)
     }
