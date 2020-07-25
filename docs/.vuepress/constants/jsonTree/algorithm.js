@@ -173,5 +173,10 @@ export default {
       path: "/algorithm/rotateRight.html",
       level: 1,
     },
+    {
+      id: "环形链表",
+      path: "/algorithm/hasCycle.html",
+      level: 1,
+    },
   ],
 }

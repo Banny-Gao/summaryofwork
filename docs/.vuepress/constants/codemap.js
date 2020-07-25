@@ -304,7 +304,18 @@ console.log(isCheckIn)`,
   
   console.log(res)
   console.timeEnd()
-  `
+  `,
+  hasCycle: `var l1 = {
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: 4
+      }
+    }
+  }
+var res = hasCycle(l1)
+console.log(res)`
 }
 
 export default codemap
