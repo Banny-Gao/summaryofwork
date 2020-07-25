@@ -290,7 +290,21 @@ console.log(isCheckIn)`,
   findIntegers: `console.time()
   const result = findIntegers(123456789)
   console.log(result)
-  console.timeEnd()`
+  console.timeEnd()`,
+  rotateRight: `console.time()
+  const res = rotateRight({
+    val: 2,
+    next: {
+      val: 3,
+      next: {
+        val: 4
+      }
+    }
+  }, 2000)
+  
+  console.log(res)
+  console.timeEnd()
+  `
 }
 
 export default codemap

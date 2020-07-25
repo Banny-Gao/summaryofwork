@@ -158,5 +158,20 @@ export default {
       path: "/algorithm/mergeKLists.html",
       level: 1,
     },
+    {
+      id: "不含连续1的非负整数",
+      path: "/algorithm/integerBreak.html",
+      level: 1,
+    },
+    {
+      id: "整数拆分",
+      path: "/algorithm/integerBreak.html",
+      level: 1,
+    },
+    {
+      id: "旋转链表",
+      path: "/algorithm/rotateRight.html",
+      level: 1,
+    },
   ],
 }
