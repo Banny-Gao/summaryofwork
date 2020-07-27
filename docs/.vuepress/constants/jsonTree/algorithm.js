@@ -178,5 +178,10 @@ export default {
       path: "/algorithm/hasCycle.html",
       level: 1,
     },
+    {
+      id: "环形链表Ⅱ",
+      path: "/algorithm/detectCycle.html",
+      level: 1,
+    },
   ],
 }

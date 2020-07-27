@@ -3,6 +3,7 @@ import { creatLoadTag } from './util/util'
 import vTalk from './lib/vTalk'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
+import 'katex/dist/katex.min.css'
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -24,7 +25,6 @@ export default ({
   })
   
   try {
-    creatLoadTag('link', 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css')
     creatLoadTag('css', 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css')
   } catch (error) {}
 }
