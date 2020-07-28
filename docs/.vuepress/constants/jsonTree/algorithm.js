@@ -183,5 +183,10 @@ export default {
       path: "/algorithm/detectCycle.html",
       level: 1,
     },
+    {
+      id: "相交链表",
+      path: "/algorithm/getIntersectionNode.html",
+      level: 1,
+    },
   ],
 }
