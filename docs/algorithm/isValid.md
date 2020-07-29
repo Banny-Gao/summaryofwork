@@ -88,7 +88,7 @@ export const isValid = (str) => {
 }
 ``` 
 
-## 边存边取
+## 单调栈
 ```javascript
 export const isValid = (str) => {
   str = str.replace(/\s/g, '')

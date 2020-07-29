@@ -188,5 +188,15 @@ export default {
       path: "/algorithm/getIntersectionNode.html",
       level: 1,
     },
+    {
+      id: "回文数",
+      path: "/algorithm/isPalindrome.html",
+      level: 1,
+    },
+    {
+      id: "只出现一次的数字",
+      path: "/algorithm/singleNumber.html",
+      level: 1,
+    },
   ],
 }
