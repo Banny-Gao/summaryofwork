@@ -315,6 +315,8 @@ console.log(isCheckIn)`,
     }
   }
 var res = hasCycle(l1)
+console.log(res)`,
+  smallestRange: `const res = smallestRange([[4,10,34,15,24,26], [0,9,12,20], [5,18,219,22,30]])
 console.log(res)`
 }
 

@@ -198,5 +198,10 @@ export default {
       path: "/algorithm/singleNumber.html",
       level: 1,
     },
+    {
+      id: "最小区间",
+      path: "/algorithm/smallestRange.html",
+      level: 1,
+    },
   ],
 }
