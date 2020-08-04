@@ -203,5 +203,10 @@ export default {
       path: "/algorithm/smallestRange.html",
       level: 1,
     },
+    {
+      id: "使用最小花费爬楼梯",
+      path: "/algorithm/minCostClimbingStairs.html",
+      level: 1,
+    },
   ],
 }
