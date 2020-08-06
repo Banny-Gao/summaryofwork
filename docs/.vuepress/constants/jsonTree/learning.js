@@ -259,5 +259,10 @@ export default {
       path: "/blog/implicitOperate.html",
       level: 1,
     },
+    {
+      id: "搜索旋转排序数组",
+      path: "/blog/search.html",
+      level: 1,
+    },
   ],
 }

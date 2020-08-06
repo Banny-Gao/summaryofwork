@@ -319,7 +319,9 @@ console.log(res)`,
   smallestRange: `const res = smallestRange([[4,10,34,15,24,26], [0,9,12,20], [5,18,219,22,30]])
 console.log(res)`,
   minCostClimbingStairs: `const res = minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1])
-  console.log(res)`
+  console.log(res)`,
+  search: `const res = search([5,6,7,0,1,2,4], 6)
+  console.log(res)`,
 }
 
 export default codemap
