@@ -46,8 +46,8 @@ export const console = {
         timer.add(() => {
             timer.updateTime()
         })
-        timer.start()
         _console.time.call(this, name)
+        timer.start()
     },
     timeEnd(name = 'default') {
         this[`timer${ name }`].stop()

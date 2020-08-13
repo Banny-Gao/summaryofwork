@@ -208,5 +208,15 @@ export default {
       path: "/algorithm/minCostClimbingStairs.html",
       level: 1,
     },
+    {
+      id: "搜索旋转排序数组",
+      path: "/blog/search.html",
+      level: 1,
+    },
+    {
+      id: "零钱兑换",
+      path: "/blog/coinChange.html",
+      level: 1,
+    },
   ],
 }
