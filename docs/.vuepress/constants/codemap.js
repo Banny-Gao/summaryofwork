@@ -323,7 +323,9 @@ console.log(res)`,
   search: `const res = search([5,6,7,0,1,2,4], 6)
   console.log(res)`,
   coinChange: `const res = coinChange([1, 2, 5], 11)
-  console.log(res)`
+  console.log(res)`,
+  isMatch: `const res = isMatch('aasasda', 'a*..*a')
+console.log(res)`,
 }
 
 export default codemap
