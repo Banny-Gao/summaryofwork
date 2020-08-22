@@ -210,17 +210,17 @@ export default {
     },
     {
       id: "搜索旋转排序数组",
-      path: "/blog/search.html",
+      path: "/algorithm/search.html",
       level: 1,
     },
     {
       id: "零钱兑换",
-      path: "/blog/coinChange.html",
+      path: "/algorithm/coinChange.html",
       level: 1,
     },
     {
       id: "正则匹配",
-      path: "/blog/isMatch.html",
+      path: "/algorithm/isMatch.html",
       level: 1,
     },
   ],
