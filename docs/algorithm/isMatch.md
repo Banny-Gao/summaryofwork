@@ -24,59 +24,16 @@ p = "a*"
 
 ## 反向递归
 ```js
-const isMatch = (s, p) => {
-  const m = s.length, n = p.length
-  if (!m && !n) return true
-
-  let i = m - 1, j = n - 1
-
-  while (j >= 0) {
-    if (p[j] === '*') {
-      if (p[j - 1] === '.') {
-        if (j - 2 < 0) return true
-        while (i + 1 > 0) {
-          const match = isMatch(s.substr(0, i + 1), p.substr(0, j - 1))
-          if (match) return true
-          i--
-        }
-        return isMatch(s.substr(0, i + 1), p.substr(0, j - 1))
-      } else {
-        if (i < 0 && j - 2 < 0) return true
-        if (s[i] !== p[j - 1]) return isMatch(s.substr(0, i + 1), p.substr(0, j - 1))
-        while (i + 1 >= 0 && s[i] === p[j - 1]) {
-          const match = isMatch(s.substr(0, i + 1), p.substr(0, j - 1))
-          if (match) return true
-          i--
-        }
-        return isMatch(s.substr(0, i + 1), p.substr(0, j - 1))
-      }
-    }
-    else if (p[j] === '.') {
-      if (i < 0) return false
-      j--
-      i--
-    } 
-    else {
-      if (p[j] === s[i]) {
-        i--
-        j--
-      } else return false
-    }
-  }
-  return i === j
-}
-```
-
-## 反向递归优化
-```js
 export const isMatch = (s, p) => {
   const map = new Map()
 
   const getMatch = (i, j) => {
-    let match = map.get(`${i}, ${j - 2}`)
+    const ns = s.substr(0, i + 1)
+    const np = p.substr(0, j - 1)
+    let match = map.get(`${ns}, ${np}`)
     if (match === undefined) {
       match = matchs(i, j - 2)
-      map.set(`${i}, ${j - 2}`, match)
+      map.set(`${ns}, ${np}`, match)
     }
     return match
   }

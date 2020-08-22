@@ -2,10 +2,12 @@ export const isMatch = (s, p) => {
   const map = new Map()
 
   const getMatch = (i, j) => {
-    let match = map.get(`${i}, ${j - 2}`)
+    const ns = s.substr(0, i + 1)
+    const np = p.substr(0, j - 1)
+    let match = map.get(`${ns}, ${np}`)
     if (match === undefined) {
       match = matchs(i, j - 2)
-      map.set(`${i}, ${j - 2}`, match)
+      map.set(`${ns}, ${np}`, match)
     }
     return match
   }
