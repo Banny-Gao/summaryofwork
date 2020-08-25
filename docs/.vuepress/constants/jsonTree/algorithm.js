@@ -223,5 +223,10 @@ export default {
       path: "/algorithm/isMatch.html",
       level: 1,
     },
+    {
+      id: "最长上升子序列",
+      path: "/algorithm/lengthOfLIS.html",
+      level: 1,
+    },
   ],
 }

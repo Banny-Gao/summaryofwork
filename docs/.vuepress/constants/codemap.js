@@ -326,6 +326,8 @@ console.log(res)`,
   console.log(res)`,
   isMatch: `const res = isMatch('aasasda', 'a*..*a')
 console.log(res)`,
+  lengthOfLIS: `const res = lengthOfLIS([10,9,2,3,7,5,101,6])
+console.log(res)`
 }
 
 export default codemap
