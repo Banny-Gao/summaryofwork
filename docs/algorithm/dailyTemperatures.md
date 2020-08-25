@@ -29,7 +29,7 @@ export const dailyTemperatures = T => {
 
 ## 单调栈
 
-<video :src="`${$router.options.base}video/Tab-1593683489035.webm`" controller/>  
+<video :src="`${$cloudUrl}video/Tab-1593683489035.webm`" controller/>  
 
 ```javascript
 export const dailyTemperatures_stack = T => {

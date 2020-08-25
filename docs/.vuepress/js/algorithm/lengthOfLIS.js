@@ -14,3 +14,6 @@ export const lengthOfLIS = nums => {
   return Math.max.apply(null, dp)
 }
 
+export const lengthOfLIS_binarySearch = nums => {
+  
+}

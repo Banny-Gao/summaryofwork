@@ -38,7 +38,7 @@ const longestPalindrome_overtime = (str = '') => {
 
 ## 动态规划版
 
-<img :src="`${$router.options.base}img/452750-20161030112606812-2106192201.png`"/>  
+<img :src="`${$cloudUrl}img/452750-20161030112606812-2106192201.png`"/>  
 上面的状态转移方程表示，当str[i]=str[j]时，如果str[i+1...j-1]是回文串，则str[i...j]也是回文串；如果str[i+1...j-1]不是回文串，则str[i...j]不是回文串。单个字符，两个相同字符都是回文串。 
 
 核心在于 dp[i][j] == dp[i+1][j-1] && s[i] === s[j]  
@@ -146,7 +146,7 @@ Manacher算法，是一种线性时间的方法。引入一个技巧，可以使
 
 数组 P[i] 来记录以字符S[i]为中心的最长回文子串向左/右扩张的长度.
 
-<img :src="`${$router.options.base}img/81320a9c88191b52b0c3ee15d84b881baf6ab0a4319da2049f143aad380f6f0c-image.png`"/>  
+<img :src="`${$cloudUrl}img/81320a9c88191b52b0c3ee15d84b881baf6ab0a4319da2049f143aad380f6f0c-image.png`"/>  
 
 - id ：从开始到现在使用“中心扩散法”能得到的“最长回文子串”的中心的位置；
 - mx：从开始到现在使用“中心扩散法”能得到的“最长回文子串”能延伸到的最右端的位置。容易知道 mx = id + p[id]。

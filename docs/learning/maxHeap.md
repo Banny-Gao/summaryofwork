@@ -6,7 +6,7 @@
 * 堆中每个节点的子树都是堆。  
 
 ## 最大堆结构图示  
-<img style="width: 30%;position: relative;left: 35%;" :src="`${$router.options.base}img/dadingdui.png`"/>   
+<img style="width: 30%;position: relative;left: 35%;" :src="`${$cloudUrl}img/dadingdui.png`"/>   
 
 ## 堆的操作与实现
 ```javascript

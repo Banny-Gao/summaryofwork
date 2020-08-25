@@ -8,7 +8,7 @@
 输出: 49
 ```
 
-<img  style="width: 60%;position: relative;left: 20%;" :src="`${$router.options.base}img/question_11.jpg`"/>  
+<img  style="width: 60%;position: relative;left: 20%;" :src="`${$cloudUrl}img/question_11.jpg`"/>  
 
 ```javascript
 export const maxArea = (nums) => {

@@ -3,7 +3,7 @@
 - 找到两个单链表相交的起始节点。 
 
 <div v-viewer>
-  <img style="width: 40%;position: relative;left: 20%;" :src="`${$router.options.base}img/160_statement.png`"/> 
+  <img style="width: 40%;position: relative;left: 20%;" :src="`${$cloudUrl}img/160_statement.png`"/> 
 </div>
 
 在节点 c1 开始相交。

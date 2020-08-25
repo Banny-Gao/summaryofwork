@@ -174,7 +174,7 @@ console.log(result)`,
     console.log(this.scrollY)
   }
   window.onscroll = debounce(scrollHandler, 500)`,
-  DFS: `fetch('/nametree.json').then(res => res.json()).then(data => {
+  DFS: `fetch('https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/nametree.json').then(res => res.json()).then(data => {
     const dfs = new DFS(data)     
     const bfs = new DFS(data)
     console.time('DFS非递归')

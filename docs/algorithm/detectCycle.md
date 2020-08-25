@@ -17,7 +17,7 @@
 算法图解 
 
 <div v-viewer>
-  <img style="width: 40%;position: relative;left: 20%;" :src="`${$router.options.base}img/has-cycle.png`"/> 
+  <img style="width: 40%;position: relative;left: 20%;" :src="`${$cloudUrl}img/has-cycle.png`"/> 
 </div>
 
 $$2(F + a) = F + a + b + a$$

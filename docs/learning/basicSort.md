@@ -76,7 +76,7 @@ export const selectSort = (arr) => {
 
 ## 插入排序  
 
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/insertSort.gif`"/>  
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/insertSort.gif`"/>  
 
 ```javascript
 export const insertSort = (arr, l = 0, r = arr.length - 1) => {
@@ -98,7 +98,7 @@ export const insertSort = (arr, l = 0, r = arr.length - 1) => {
 
 ## 希尔排序
 * 希尔排序即是插入排序的优化，按一定增量分组后进行插入排序，增量自减再排序，直到排序完成  
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/shellSort.gif`"/>   
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/shellSort.gif`"/>   
 
 ```javascript
 export const shellSort = (arr) => {
@@ -143,7 +143,7 @@ export const mergeSort = (arr, l = 0, r = arr.length - 1) => {
   return arr
 }
 ```  
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/mergeSort.png`"/>   
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/mergeSort.png`"/>   
 
 ```javascript
 export const merge = (arr, left, mid, right) => {
@@ -198,7 +198,7 @@ export const quickSort2 = arr => {
   return quickSort(arr, 0, arr.length - 1, 2)
 }
 ```  
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/quickSort_partition.png`"/>  
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/quickSort_partition.png`"/>  
 
 ### partition1  
 
@@ -219,7 +219,7 @@ const partition1 = (arr, l, r) => {
   return j
 }
 ``` 
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/quickSort_partition2.png`"/>   
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/quickSort_partition2.png`"/>   
 
 ### partition2  
 
@@ -245,7 +245,7 @@ const partition2 = (arr, l, r) => {
 <CodeTest mode="testQuickSort" />  
 
 ## 三路快排
-<img style="width: 80%;position: relative;left: 10%;" :src="`${$router.options.base}img/quickSort_partition3.png`"/>   
+<img style="width: 80%;position: relative;left: 10%;" :src="`${$cloudUrl}img/quickSort_partition3.png`"/>   
 
 ```javascript
 export const quickSort3 = (arr, l = 0, r = arr.length - 1) => {
@@ -278,7 +278,7 @@ export const quickSort3 = (arr, l = 0, r = arr.length - 1) => {
 <CodeTest mode="testQuickSort3" />  
 
 ## 堆排序
-<img style="width: 60%;position: relative;left: 20%;" :src="`${$router.options.base}img/heapSort.gif`"/>   
+<img style="width: 60%;position: relative;left: 20%;" :src="`${$cloudUrl}img/heapSort.gif`"/>   
 
 ```javascript
 export const heapSort = (arr) => {
@@ -316,7 +316,7 @@ const heapify = (arr, i, len = arr.length) => {
 <CodeTest mode="testHeapSort" />  
 
 ## 计数排序
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/640.gif`"/>   
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/640.gif`"/>   
 
 ```javascript
 export const countSort = (arr) => {
@@ -350,7 +350,7 @@ export const countSort = (arr) => {
 <CodeTest mode="testCountSort" />  
 
 ## 桶排序
-<img style="width: 60%;position: relative;left: 20%;" :src="`${$router.options.base}img/641.gif`"/>   
+<img style="width: 60%;position: relative;left: 20%;" :src="`${$cloudUrl}img/641.gif`"/>   
 
 ```javascript
 //桶排序  适用于近乎有序的数组
@@ -410,7 +410,7 @@ export const bucketSort = (arr, l = 0, r = arr.length - 1, bucketSize = 15) => {
 <CodeTest mode="testBucketSort" />  
 
 ## 基数排序
-<img style="width: 50%;position: relative;left: 25%;" :src="`${$router.options.base}img/642.gif`"/>   
+<img style="width: 50%;position: relative;left: 25%;" :src="`${$cloudUrl}img/642.gif`"/>   
 
 ```javascript
 //LSD 基数排序

@@ -19,7 +19,7 @@
 - **不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。**
 
 ## 小学乘法
-<img :src="`${$router.options.base}img/multiply.png`"/> 
+<img :src="`${$cloudUrl}img/multiply.png`"/> 
 
 ```javascript
 export const multiply = (num1, num2) => {

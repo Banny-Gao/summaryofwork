@@ -160,7 +160,7 @@ export default {
     },
     {
       id: "不含连续1的非负整数",
-      path: "/algorithm/integerBreak.html",
+      path: "/algorithm/findIntegers.html",
       level: 1,
     },
     {

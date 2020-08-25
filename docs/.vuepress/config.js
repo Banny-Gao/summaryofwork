@@ -10,13 +10,13 @@ module.exports = {
   title: 'Summary Of work',
   description: 'The description of the site.',
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['link', { rel: 'icon', href: 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/logo.png' }],
+    ['link', { rel: 'manifest', href: 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: '#3eaf7c' }],
-    ['link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon-152.png' }],
-    ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
+    ['link', { rel: 'apple-touch-icon', href: 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/icons/apple-touch-icon-152.png' }],
+    ['link', { rel: 'mask-icon', href: 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
   ],
   base: '/',
   dest: './dist',
@@ -80,6 +80,7 @@ module.exports = {
   },
   chainWebpack(config) {
     if (process.env.NODE_ENV === 'development') {
+      config.devServer.https(true)
       config.plugin('analyzer').use(BundleAnalyzerPlugin)
     }
   }

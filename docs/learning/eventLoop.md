@@ -69,6 +69,6 @@ console.log('script end');
 ```
 秉承先同步后异步，先微任务后宏任务的原则。我们来分析以上代码执行。
 
-<img :src="`${$router.options.base}img/eventLoop.png`"/>  
+<img :src="`${$cloudUrl}img/eventLoop.png`"/>  
 
 <CodeTest />

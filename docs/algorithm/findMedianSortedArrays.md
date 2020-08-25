@@ -76,16 +76,16 @@ export const findMedianSortedArrays_overtime = (nums1 = [], nums2 = []) => {
 
 ## 寻K法  
 在两个有序数组中寻找合并排序后第K个元素，省去先排序再找，二分大法思想,每个数组中寻k/2  
-<img :src="`${$router.options.base}img/m00.png`"/>  
+<img :src="`${$cloudUrl}img/m00.png`"/>  
 - 寻7除2求整，上下寻3  
-<img :src="`${$router.options.base}img/m01.png`"/>  
+<img :src="`${$cloudUrl}img/m01.png`"/>  
 - 舍小留大，减3为4，二分重寻  
-<img :src="`${$router.options.base}img/m02.png`"/>  
+<img :src="`${$cloudUrl}img/m02.png`"/>  
 - 除2得2，5大3小，去上留下，减二二分为一。相等任意取一  
-<img :src="`${$router.options.base}img/m03.png`"/>  
+<img :src="`${$cloudUrl}img/m03.png`"/>  
 - 为1不分，取较小者   
-<img :src="`${$router.options.base}img/m11.png`"/>  
-<img :src="`${$router.options.base}img/m12.png`"/>  
+<img :src="`${$cloudUrl}img/m11.png`"/>  
+<img :src="`${$cloudUrl}img/m12.png`"/>  
 - k值二分大于其中一个数组的长度
 
 <br />
@@ -291,7 +291,7 @@ export const findMedianSortedArrays_merge = (nums1, nums2) => {
 }" />  
 也就是说我们将两个数组切成两段  
 
-<img :src="`${$router.options.base}img/b9d90d65438709de1d537b8b340fb15104a10da3a2b121727e6edfc8484b6b80-image.png`"/>
+<img :src="`${$cloudUrl}img/b9d90d65438709de1d537b8b340fb15104a10da3a2b121727e6edfc8484b6b80-image.png`"/>
 
 m = arr1.length  
 n = arr2.length  
