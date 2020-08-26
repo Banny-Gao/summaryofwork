@@ -28,6 +28,8 @@ video
   margin 1rem auto
   max-width 800px
 
+img 
+  background-color #fff
 
 /**scroll**/
 
@@ -88,14 +90,20 @@ background: none;
 
 }
 
-.image-viewer-box 
-  display flex
+.viewer-wraper 
+  position relative
+  min-height 450px
+  max-width  900px
   background-color rgb(40, 44, 52)
-  padding 0.5rem
-  box-sizing border-box
-  justify-content space-between
-  overflow-x auto
+  margin 1rem auto
+
+.image-viewer-box 
+  display flex 
+  flex-wrap wrap
+  padding-bottom 0.5rem
   img 
-    flex 1 1 10rem
-    height  6rem
-    padding-right 0.5rem
+    width 32%
+    box-sizing border-box
+    margin-left 1%
+    margin-top 0.5rem
+      

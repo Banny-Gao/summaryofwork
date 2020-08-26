@@ -42,9 +42,11 @@ export const findIntegers_optimize = num => {
 
 ## 动态规划[位运算]
 
-<div class="image-viewer-box" v-viewer>
-  <img v-for="imgUrl of [`${$cloudUrl}img/4d551f5d1a5c37b1eeb6200bbde4705241b874e9a09f4211e9d6ba88861b0a7c-image.png`, `${$cloudUrl}img/6c2d8465fea65c7030cd9ba345eed8600502c1293f8c45adcd1edff50d2b86b2-image.png`, `${$cloudUrl}img/8d91e9e1528c3127c9e6db707d84b0b956f827254438a864ea27f397f33a5b10-image.png`, `${$cloudUrl}img/ba7c002a0320948c90f2f69f87b86e5558611610b60d4dd0d37126ff88d05779-image.png`, `${$cloudUrl}img/6fd5af4c533c928b3770e6ebe6120c238aea1aa0fc49e3d4af7c7cdba90ad177-image.png`, `${$cloudUrl}img/98e76e92064de01381538d2b9f4b64be46f14b825e12b33d6f277ed006f42cac-image.png`, `${$cloudUrl}img/6716ad7f9b676ec98e86cda81a8fa5859b3ba51858c219fc622b17782d842b90-image.png`, `${$cloudUrl}img/359dd86ff0513658aad53e059d7b7b1d65428bc00930e2201eb2a56c8786f0b2-image.png`]" :src="imgUrl" :key="imgUrl" />
-</div>
+<div class="viewer-wraper">
+  <div class="image-viewer-box" v-viewer="{inline: true, navbar: false, title: false}">
+    <img v-for="imgUrl of [`${$cloudUrl}img/4d551f5d1a5c37b1eeb6200bbde4705241b874e9a09f4211e9d6ba88861b0a7c-image.png`, `${$cloudUrl}img/6c2d8465fea65c7030cd9ba345eed8600502c1293f8c45adcd1edff50d2b86b2-image.png`, `${$cloudUrl}img/8d91e9e1528c3127c9e6db707d84b0b956f827254438a864ea27f397f33a5b10-image.png`, `${$cloudUrl}img/ba7c002a0320948c90f2f69f87b86e5558611610b60d4dd0d37126ff88d05779-image.png`, `${$cloudUrl}img/6fd5af4c533c928b3770e6ebe6120c238aea1aa0fc49e3d4af7c7cdba90ad177-image.png`, `${$cloudUrl}img/98e76e92064de01381538d2b9f4b64be46f14b825e12b33d6f277ed006f42cac-image.png`, `${$cloudUrl}img/6716ad7f9b676ec98e86cda81a8fa5859b3ba51858c219fc622b17782d842b90-image.png`, `${$cloudUrl}img/359dd86ff0513658aad53e059d7b7b1d65428bc00930e2201eb2a56c8786f0b2-image.png`]" :src="imgUrl" :key="imgUrl" />
+  </div>
+</div> 
 
 > 从 numnum 的最高位开始考虑，对于第 ii 个位置遇到的 11 （从低位序号为 0 开始考虑），我们将答案加 f[i]f[i] ，对每个遇到的 00 ，我们不给答案加任何值。我们还要记录上一个位置的数值为多少，一旦我们发现连续的 1 ，我们将第二个 1 变成 0 的影响考虑后即停止遍历。如果我们没有遇到连续的 1 ，我们一直遍历到最低位并将最终答案加 1 ，表示 numnum 也是合法数字，因为上述过程并没有考虑 numnum 进去
 
