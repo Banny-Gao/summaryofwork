@@ -327,7 +327,67 @@ console.log(res)`,
   isMatch: `const res = isMatch('aasasda', 'a*..*a')
 console.log(res)`,
   lengthOfLIS: `const res = lengthOfLIS([10,9,2,3,7,5,101,6])
-console.log(res)`
+console.log(res)`,
+  binarySearch: `const res = binarySearch([2, 123, 432, 1829, 12123], 432)
+console.log(res)`,
+  BST: `const testBSTOrder = () => {
+const bst = new BST()
+const N = 1000000,
+  M = 1000000
+const keyArr = []
+for (let i = 0; i < N; i++) {
+  const key = ~~(Math.random() * M)
+  let res = bst.search(key)
+  if (!res) {
+    bst.insert(key, 1) 
+    keyArr.push(key)
+  }
+  else {
+    res = res + 1
+    bst.insert(key, res)
+  }
+}
+console.time('search:')
+bst.search(9983)
+console.timeEnd('search:')
+console.time('preOrder:')
+bst.preOrder(9983)
+console.timeEnd('preOrder:')
+console.time('inOrder:')
+bst.inOrder(9983)
+console.timeEnd('inOrder:')
+console.time('postOrder:')
+bst.postOrder(9983)
+console.timeEnd('postOrder:')
+console.time('levelOrder:')
+bst.levelOrder(9983)
+console.timeEnd('levelOrder:')
+}
+testBSTOrder()
+
+const testBSTSearch = () => {
+const bst = new BST()
+fetch('https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/txt/bible.txt')
+  .then(response => response.text())
+  .then(text => {
+    console.log('圣经总字数:' + text.length)
+    const wordsArr = text.replace(/\\W+/g, ' ').split(/\\s+/g)
+    // 词频统计
+    for (let word of wordsArr) {
+      let res = bst.search(word)
+      if (!res) bst.insert(word, 1)
+      else {
+        res = res + 1
+        bst.insert(word, res)
+      }
+    }
+    console.time('getWordsNum:')
+    bst.contain('God') ? console.log('God一共出现了' + bst.search('God') + '次') : console.log('不存在单词God')
+    console.timeEnd('getWordsNum:')
+  })
+}
+testBSTSearch()
+  `,
 }
 
 export default codemap

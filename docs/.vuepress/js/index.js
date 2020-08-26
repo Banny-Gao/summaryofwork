@@ -11,6 +11,7 @@ export * from './debounce&throttle'
 export { default as _debounce } from './_.debounce'
 export { default as _throttle } from './_.throttle'
 export * from './DFS&BFS'
+export * from './binarySearch'
 
 
 

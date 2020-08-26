@@ -1,12 +1,9 @@
-// Basic
-// 在有序数组中二分查找target，返回索引index，未找到返回-1
-// while二分查找 
-const binarySearch = (arr = [], n, target) => {
-  //在arr[l...r]中查找target
+export const binarySearch = (arr = [], target) => {
   let l = 0,
-    r = n - 1
+    r = arr.length - 1
+
   while (l <= r) {
-    let mid = l + (r - 1) / 2 //为了防止极端溢出
+    const mid = (l + r) >> 1
     if (arr[mid] == target) {
       return mid
     }
@@ -18,40 +15,23 @@ const binarySearch = (arr = [], n, target) => {
   }
   return -1
 }
-// 递归二分查找
-const binarySearch2 = (arr = [], n, target) => {
-  return _binarySearch2(arr, 0, n - 1, target)
-}
-const _binarySearch2 = (arr, l, r, target) => {
-  if (l > r) return -1
-  let mid = l + (r - 1) / 2
-  if (arr[mid] == target)
-    return mid
-  if (arr[mid] > target)
-    return _binarySearch2(arr, l, mid - 1, target)
-  else
-    return _binarySearch2(arr, mid + 1, r, target)
-}
 
-const testFun = (arr, n, fn) => {
-  for (let i = 0; i < 2n; i++) {
-    const v = fn(arr, n, i)
+export const binarySearch_recursive = (arr = [], target) => {
+  const search = (arr, target, l, r) => {
+    if (l > r) return -1
+
+    const mid = (l + r) >> 1
+
+    if (arr[mid] == target) return mid
+    if (arr[mid] > target) return search(arr, l, mid - 1, target)
+
+    return search(arr, mid + 1, r, target)
   }
+  return search(arr, target, 0, arr.length - 1)
 }
-const arr = [],
-  n = 1000000
-for (let i = 0; i < n; i++) {
-  arr[i] = i
-}
-// 非递归算法在性能上有微弱优势
-console.time('while方法：')
-testFun(arr, n, binarySearch)
-console.timeEnd('while方法：')
-console.time('递归方法：')
-testFun(arr, n, binarySearch2)
-console.timeEnd('递归方法：')
 
-class BST {
+
+export class BST {
   static Node(key, value) {
     return {
       key,
@@ -217,62 +197,3 @@ class BST {
     }
   }
 }
-
-
-const testBSTSearch = () => {
-  const bst = new BST()
-  fetch('../txt/bible.txt')
-    .then(response => response.text())
-    .then(text => {
-      console.log(`圣经总字数:${text.length}`)
-      const wordsArr = text.split(/[\.|\s|,]/)
-      // 词频统计
-      for (let word of wordsArr) {
-        let res = bst.search(word)
-        if (!res) bst.insert(word, 1)
-        else {
-          res = res + 1
-          bst.insert(word, res)
-        }
-      }
-      console.time('getWordsNum:')
-      bst.contain('god') ? console.log(`god一共出现了${bst.search('god')}次`) : console.log('不存在单词god')
-      console.timeEnd('getWordsNum:')
-    })
-}
-testBSTSearch()
-
-const testBSTOrder = () => {
-  const bst = new BST()
-  const N = 1000000,
-    M = 1000000
-  const keyArr = []
-  for (let i = 0; i < N; i++) {
-    const key = ~~(Math.random() * M)
-    let res = bst.search(key)
-    if (!res) {
-      bst.insert(key, 1) 
-      keyArr.push(key)
-    }
-    else {
-      res = res + 1
-      bst.insert(key, res)
-    }
-  }
-  console.time('search:')
-  bst.search(9983)
-  console.timeEnd('search:')
-  console.time('preOrder:')
-  bst.preOrder(9983)
-  console.timeEnd('preOrder:')
-  console.time('inOrder:')
-  bst.inOrder(9983)
-  console.timeEnd('inOrder:')
-  console.time('postOrder:')
-  bst.postOrder(9983)
-  console.timeEnd('postOrder:')
-  console.time('levelOrder:')
-  bst.levelOrder(9983)
-  console.timeEnd('levelOrder:')
-}
-testBSTOrder()

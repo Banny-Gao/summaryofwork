@@ -239,7 +239,7 @@ false == [] // true
 (function a() {}) >= ({})   // true
 [1] == 1   //  true
 NaN == NaN  // false
-{} != NaN  // false
+{} != NaN  // true
 [] == []  // false, 内存地址不同
 {} == {} // false，内存地址不同
 ![] == [] // true, hint为number -> false == 0 -> 0 == 0
