@@ -6,6 +6,10 @@ import 'viewerjs/dist/viewer.css'
 import 'katex/dist/katex.min.css'
 import './lib/G6Components'
 
+import {
+  G2Basic
+} from './lib/G2Components'
+
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -21,6 +25,8 @@ export default ({
       zIndex: 9999
     }
   })
+
+  Vue.use(G2Basic)
 
   Vue.prototype.$cloudUrl = 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/'
   
