@@ -4,6 +4,7 @@ import vTalk from './lib/vTalk'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 import 'katex/dist/katex.min.css'
+import './lib/G6Components'
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数

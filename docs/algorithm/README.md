@@ -1,6 +1,6 @@
 # 😡
 
-<KnowledgeTree direction="H" type="mindmap" :collapsedLevel='2'/>
+<!-- <KnowledgeTree direction="H" type="mindmap" :collapsedLevel='2'/> -->
 
 <MarkdownCard>
 **动态规划**  
