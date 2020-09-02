@@ -6,9 +6,7 @@ import 'viewerjs/dist/viewer.css'
 import 'katex/dist/katex.min.css'
 import './lib/G6Components'
 
-import {
-  G2Basic
-} from './lib/G2Components'
+import * as G2Components from './lib/G2Components'
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -26,7 +24,7 @@ export default ({
     }
   })
 
-  Vue.use(G2Basic)
+  Object.values(G2Components).forEach(G2Component => Vue.use(G2Component))
 
   Vue.prototype.$cloudUrl = 'https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/'
   

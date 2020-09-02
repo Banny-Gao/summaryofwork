@@ -11,18 +11,6 @@ export default {
       id: "两个有序数组的中位数",
       path: "/algorithm/findMedianSortedArrays.html",
       level: 1,
-      children: [
-        {
-          id: "寻K法",
-          path: "/algorithm/findMedianSortedArrays.html#寻k法",
-          level: 2,
-        },
-        {
-          id: "数学统计法",
-          path: "/algorithm/findMedianSortedArrays.html#数学统计法",
-          level: 2,
-        },
-      ],
     },
     {
       id: "螺旋矩阵Ⅱ",
@@ -43,23 +31,6 @@ export default {
       id: "最长回文子串",
       path: "/algorithm/longestPalindrome.html",
       level: 1,
-      children: [
-        {
-          id: "动态规划",
-          path: "/algorithm/longestPalindrome.html#动态规划版",
-          level: 2,
-        },
-        {
-          id: "中心扩展算法",
-          path: "/algorithm/longestPalindrome.html#中心扩展算法",
-          level: 2,
-        },
-        {
-          id: "马拉车算法",
-          path: "/algorithm/longestPalindrome.html#Manacher算法",
-          level: 2,
-        },
-      ],
     },
     {
       id: "盛最多水的容器",
@@ -115,18 +86,6 @@ export default {
       id: "重构字符串",
       path: "/algorithm/reorganizeString.html",
       level: 1,
-      children: [
-        {
-          id: "排序优先",
-          path: "/algorithm/reorganizeString.html#排序插入",
-          level: 2,
-        },
-        {
-          id: "贪心堆",
-          path: "/algorithm/reorganizeString.html#贪心堆",
-          level: 2,
-        },
-      ],
     },
     {
       id: "无重复字符的最长子串",

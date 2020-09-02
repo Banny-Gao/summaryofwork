@@ -37,19 +37,19 @@ export default {
         .color("phone")
         .shape("phone", ["circle", "square", "triangle"])
         .size(3)
-        .adjust("stack")
+        .adjust("symmetric")
 
       chart
         .line()
         .position("feature*value")
         .color("phone")
-        .adjust("stack")
+        .adjust("symmetric")
 
       chart
         .area()
         .position("feature*value")
         .color("phone")
-        .adjust("stack")
+        .adjust("symmetric")
 
       // chart.facet("rect", {
       //   fields: [null, "phone"],
@@ -77,7 +77,7 @@ export default {
         .coordinate("rect")
         .reflect('x')
         .scale(0.7, 1.2)
-        .transpose()
+        // .transpose()
         // .rotate(-Math.PI * 0.25)
       chart.render()
     },

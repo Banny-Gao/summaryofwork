@@ -1,5 +1,6 @@
 # 😡
 
+<G2CloudWord private-path="algorithmWord"/>
 <!-- <KnowledgeTree direction="H" type="mindmap" :collapsedLevel='2'/> -->
 
 <MarkdownCard>
@@ -22,5 +23,3 @@ for 状态1 in 状态1的所有取值：
             dp[状态1][状态2][...] = 求最值(选择1，选择2...)
 ```
 </MarkdownCard>
-
-<vTalk />
