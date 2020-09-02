@@ -133,16 +133,19 @@ export default {
         .position(`${x}*${y}`)
         .color("text")
         .shape("cloud")
+        .animate({
+          appear: {
+            animation: 'zoom-in',
+          },
+        })
       chart.interaction("element-highlight")
       chart.render()
 
       chart.on("click", (ev) => {
         const {
           data: {
-            data: {
-              path
-            }
-          }
+            data: { path },
+          },
         } = ev
 
         this.$router.push({ path })
