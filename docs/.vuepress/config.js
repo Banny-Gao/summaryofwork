@@ -22,45 +22,42 @@ module.exports = {
   dest: './dist',
 
   themeConfig: {
-    nav: [{
-      text: '🏠',
-      link: '/'
-    },
-    {
-      text: navTitle,
-      link: '/timeLine/'
-    },
-    {
-      text: 'Learning',
-      link: '/learning/'
-    },
-    {
-      text: 'Reading',
-      items: [{
-        text: '📚',
-        link: '/bookReading/'
+    nav: [
+      {
+        text: navTitle,
+        link: '/time.html'
       },
       {
-        text: '📂',
-        link: '/resource/'
+        text: 'Learning',
+        link: '/learning/'
       },
-      ]
-    },
-    {
-      text: 'Algorithm',
-      link: '/algorithm/'
-    },
-    {
-      text: 'Gayhub',
-      link: 'https://github.com/Mackkkk/'
-    }
+      {
+        text: 'Reading',
+        items: [{
+          text: '📚',
+          link: '/bookReading/'
+        },
+        {
+          text: '📂',
+          link: '/resource/'
+        },
+        ]
+      },
+      {
+        text: 'Algorithm',
+        link: '/algorithm/'
+      },
+      {
+        text: 'Gayhub',
+        link: 'https://github.com/Mackkkk/'
+      }
     ],
     sidebar: {
       '/learning/': getMdMap(path.join('learning')),
       '/bookReading/': getMdMap(path.join('bookReading')),
       '/resource/': getMdMap(path.join('resource')),
       '/algorithm/': getMdMap(path.join('algorithm'))
-    }
+    },
   },
   markdown: {
     // options for markdown-it-anchor
@@ -82,6 +79,7 @@ module.exports = {
     if (process.env.NODE_ENV === 'development') {
       config.devServer.https(true)
       config.plugin('analyzer').use(BundleAnalyzerPlugin)
+      config.devtool('source-map')
     }
-  }
+  },
 }

@@ -72,6 +72,4 @@ export default {
       pre
         margin 0
         border-radius 6px
-.cursor
-  cursor pointer
 </style>

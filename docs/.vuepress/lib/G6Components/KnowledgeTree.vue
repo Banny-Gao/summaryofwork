@@ -308,6 +308,5 @@ export default {
   border: 1px solid #e2e2e2;
   border-radius: 4px;
   position: absolute;
-  cursor: pointer;
 }
 </style>

@@ -31,7 +31,6 @@ export default {
   text-align: center;
   .tabel-cell{
     line-height: 42px;
-    cursor: context-menu;
     font-size: 14px;
     font-weight: 700;
     .active{

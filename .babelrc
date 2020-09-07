@@ -10,6 +10,7 @@
         "libraryName": "view-design",
         "libraryDirectory": "src/components"
       }
-    ]
+    ],
+    "@babel/plugin-proposal-export-namespace-from"
   ]
 }
