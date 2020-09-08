@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div ref="graph" style="height: 68vh;"></div>
-  </div>
+  <div ref="graph" style="height: 68vh;"></div>
 </template>
 <script>
 import { debounce } from "lodash"
 import DataSet from "@antv/data-set"
-import { Chart, registerShape, Util } from "@antv/g2"
+import { registerShape, Util } from "@antv/g2"
+import G2Base from './G2Base'
 
 export default {
+  extends: G2Base,
   name: "G2CloudWord",
   props: {
     data: {
@@ -30,22 +30,10 @@ export default {
   },
   data() {
     return {
-      chart: null,
       dv: null,
     }
   },
   methods: {
-    initGraph() {
-      const { offsetWidth: width, offsetHeight: height } = this.$refs.graph
-
-      this.chart = new Chart({
-        container: this.$refs.graph,
-        width,
-        height,
-      })
-
-      this.renderGraph()
-    },
     initDv() {
       const { x, y, data, privatePath } = this.$props
       const { offsetWidth, offsetHeight } = this.$refs.graph
@@ -154,13 +142,7 @@ export default {
   },
   mounted() {
     this.registerCloudShape()
-    this.initGraph()
-
-    const resize = debounce(() => {
-      const { offsetWidth, offsetHeight } = this.$refs.graph
-      this.chart.changeSize(offsetWidth, offsetHeight)
-    }, 200)
-    window.addEventListener("resize", resize)
+    this.renderGraph()
   },
 }
 </script>

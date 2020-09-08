@@ -1,7 +1,5 @@
 <template>
-  <div class="curve-con">
-
-  </div>
+  <div class="curve-con"></div>
 </template>
 
 <script>

@@ -8,7 +8,6 @@ export const queryParse = (search = window.location.search) => {
     .split('&')
     .forEach(queryStr => {
       const [key, value] = queryStr.split('=')
-      /* istanbul ignore else */
       if (key) query[decodeURIComponent(key)] = decodeURIComponent(value)
     })
 
@@ -36,11 +35,8 @@ export const axiosGithub = axios.create({
 })
 
 export const getMetaContent = (name, content) => {
-  /* istanbul ignore next */
   content || (content = 'content')
-  /* istanbul ignore next */
   const el = window.document.querySelector(`meta[name='${name}']`)
-  /* istanbul ignore next */
   return el && el.getAttribute(content)
 }
 
@@ -56,19 +52,12 @@ export const formatErrorMsg = err => {
 }
 
 export const hasClassInParent = (element, ...className) => {
-  /* istanbul ignore next */
   let yes = false
-  /* istanbul ignore next */
   if (typeof element.className === 'undefined') return false
-  /* istanbul ignore next */
   const classes = element.className.split(' ')
-  /* istanbul ignore next */
   className.forEach((c, i) => {
-    /* istanbul ignore next */
     yes = yes || (classes.indexOf(c) >= 0)
   })
-  /* istanbul ignore next */
   if (yes) return yes
-  /* istanbul ignore next */
   return element.parentNode && hasClassInParent(element.parentNode, className)
 }
