@@ -14,15 +14,18 @@
       </div>
       <div class="charts-container">
         <Stars v-if="chartType === 'Stars'" />
+        <Collections v-else />
       </div>
     </div>
   </div>
 </template>
 <script>
 import Stars from "./Stars"
+import Collections from "./Collections"
 export default {
   components: {
     Stars,
+    Collections,
   },
   data() {
     return {

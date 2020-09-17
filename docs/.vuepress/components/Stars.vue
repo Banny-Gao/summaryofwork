@@ -1,5 +1,6 @@
 <template>
   <div class="stars-container">
+    <a-spin v-if="!categoryStars.length" :style="spinStyles"/>
     <g2-treemap
       :data="categoryStars"
       coordinate="polar"
@@ -15,6 +16,7 @@
 <script>
 import { github } from "../api"
 import G2Treemap from "../lib/G2Components/G2Treemap"
+
 export default {
   components: {
     G2Treemap,
@@ -28,9 +30,24 @@ export default {
       sort: "stars",
       language: "", // javascript
       categoryStars: [],
+      spinStyles: {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+      }
     }
   },
   methods: {
+    async getJson() {
+      const categoryStars = await new Promise((resolve, reject) => {
+        fetch(`${this.$cloudUrl}stars.json`)
+          .then(res => res.json())
+          .then(resolve)
+          .catch(reject)
+      })
+      this.categoryStars = categoryStars
+    },
     async getAllStars() {
       try {
         const data = await this.getStars()
@@ -57,7 +74,11 @@ export default {
       return data
     },
     async getCategoryStars() {
-      await this.getAllStars()
+      try {
+        await this.getAllStars()
+      } catch {
+        await this.getJson()
+      }
 
       const map = new Map()
       this.stars.forEach((star) => {
@@ -89,4 +110,7 @@ export default {
   },
 }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="stylus">
+.stars-container 
+  position relative
+</style>

@@ -37,6 +37,10 @@ export default {
     isShowLabel: {
       type: Boolean,
       default: true,
+    },
+    setTooltip: {
+      type: Function,
+      default: () => {}
     }
   },
   data() {
@@ -94,7 +98,7 @@ export default {
     },
     renderGraph() {
       const { chart, nodes } = this
-      const { categoryKey, coordinate, label, isShowLabel } = this.$props
+      const { categoryKey, coordinate, label, isShowLabel, setTooltip } = this.$props
 
       chart.coordinate(coordinate)
       chart.data(nodes)
@@ -105,13 +109,17 @@ export default {
         showMarkers: false
       })
 
-      chart
+      const geometry = chart
         .polygon()
         .position("x*y")
-        .tooltip(`${label}*value`, (name, value) => ({
-          name,
-          value
-        }))
+        .tooltip(`${label}*value`, (name, value) => {
+          const customTooltip = setTooltip(name, value)
+          if (
+            Object.prototype.toString.call(customTooltip).slice(-7, -1) === 'Object' && 
+            ['name', 'value'].every(customTooltip.hasOwnProperty.bind(customTooltip))
+          ) return customTooltip
+          return {name, value}
+        })
         .color(categoryKey)
         .style({
           lineWidth: 1,
@@ -123,7 +131,7 @@ export default {
           },
         })
 
-        if (isShowLabel) chart.label(label, {
+        if (isShowLabel) geometry.label(label, {
           offset: 0,
           style: {
             textBaseline: "middle",
