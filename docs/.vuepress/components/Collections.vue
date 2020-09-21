@@ -38,7 +38,7 @@ export default {
       window.open(e.data.data.url)
     },
     handleSetTooltip(name, value) {
-      let count = value / 100 * 10
+      let count = value / 100 * 6
       let stars = '<ul style="line-height: 0;font-size: 16px;" role="radiogroup" class="ant-rate" data-v-a1ccd506="">'
 
       while(count > 0) {
