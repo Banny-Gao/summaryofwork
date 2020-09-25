@@ -187,5 +187,10 @@ export default {
       path: "/algorithm/lengthOfLIS.html",
       level: 1,
     },
+    {
+      id: "石子游戏",
+      path: "/algorithm/stoneGame.html",
+      level: 1,
+    },
   ],
 }

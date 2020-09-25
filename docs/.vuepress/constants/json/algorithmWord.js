@@ -132,4 +132,9 @@ export default [
     y: 143.0778012349141,
     path: "/algorithm/lengthOfLIS.html",
   },
+  {
+    x: "石子游戏",
+    y: 755.0778012349141,
+    path: "/algorithm/stoneGame.html",
+  },
 ]
