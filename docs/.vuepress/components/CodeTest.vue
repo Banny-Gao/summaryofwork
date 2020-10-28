@@ -114,6 +114,16 @@
           >rotateRight_timeout</a-select-option
         >
       </a-select>
+      <a-select
+        labelInValue
+        :defaultValue="{ key: 'strStr' }"
+        style="width: 200px;margin-right: 14px;"
+        @change="strStrSelect"
+        v-if="mode === 'strStr'"
+      >
+        <a-select-option value="strStr">strStr</a-select-option>
+        <a-select-option value="strStr_KMP">strStr_KMP</a-select-option>
+      </a-select>
       <a-button type="primary" size="small" @click="run">运行</a-button>
     </div>
     <a-row class="codemirror_con" :gutter="14">
@@ -157,227 +167,233 @@
 </template>
 
 <script>
+  import CodeMap from '../constants/codemap'
 
-import CodeMap from "../constants/codemap"
+  import '../js/reduce'
+  import 'codemirror/lib/codemirror.css'
+  import 'codemirror/theme/material.css'
+  import './styles/overcodeMirror.css'
+  import 'codemirror/addon/hint/show-hint.css'
 
-import "../js/reduce"
-import "codemirror/lib/codemirror.css"
-import "codemirror/theme/material.css"
-import "./styles/overcodeMirror.css"
-import "codemirror/addon/hint/show-hint.css"
+  try {
+    var SWorker = require('simple-web-worker')
+    var { codemirror } = require('vue-codemirror')
 
-try {
-  var SWorker = require("simple-web-worker")
-  var { codemirror } = require("vue-codemirror")
+    require('codemirror/mode/javascript/javascript.js')
 
-  require("codemirror/mode/javascript/javascript.js")
+    require('codemirror/addon/selection/active-line.js')
+    // styleSelectedText
+    require('codemirror/addon/selection/mark-selection.js')
+    require('codemirror/addon/search/searchcursor.js')
+    // hint
+    require('codemirror/addon/hint/show-hint.js')
+    require('codemirror/addon/hint/javascript-hint.js')
+    require('codemirror/addon/selection/active-line.js')
+    // highlightSelectionMatches
+    require('codemirror/addon/scroll/annotatescrollbar.js')
+    require('codemirror/addon/search/matchesonscrollbar.js')
+    require('codemirror/addon/search/searchcursor.js')
+    require('codemirror/addon/search/match-highlighter.js')
+    // keyMap
+    require('codemirror/mode/clike/clike.js')
+    require('codemirror/addon/edit/matchbrackets.js')
+    require('codemirror/addon/comment/comment.js')
+    require('codemirror/addon/dialog/dialog.js')
+    require('codemirror/addon/dialog/dialog.css')
+    require('codemirror/addon/search/searchcursor.js')
+    require('codemirror/addon/search/search.js')
+    require('codemirror/keymap/sublime.js')
+    // foldGutter
+    require('codemirror/addon/fold/foldgutter.css')
+    require('codemirror/addon/fold/brace-fold.js')
+    require('codemirror/addon/fold/comment-fold.js')
+    require('codemirror/addon/fold/foldcode.js')
+    require('codemirror/addon/fold/foldgutter.js')
+    require('codemirror/addon/fold/indent-fold.js')
+    require('codemirror/addon/fold/markdown-fold.js')
+    require('codemirror/addon/fold/xml-fold.js')
+  } catch (error) {}
 
-  require("codemirror/addon/selection/active-line.js")
-  // styleSelectedText
-  require("codemirror/addon/selection/mark-selection.js")
-  require("codemirror/addon/search/searchcursor.js")
-  // hint
-  require("codemirror/addon/hint/show-hint.js")
-  require("codemirror/addon/hint/javascript-hint.js")
-  require("codemirror/addon/selection/active-line.js")
-  // highlightSelectionMatches
-  require("codemirror/addon/scroll/annotatescrollbar.js")
-  require("codemirror/addon/search/matchesonscrollbar.js")
-  require("codemirror/addon/search/searchcursor.js")
-  require("codemirror/addon/search/match-highlighter.js")
-  // keyMap
-  require("codemirror/mode/clike/clike.js")
-  require("codemirror/addon/edit/matchbrackets.js")
-  require("codemirror/addon/comment/comment.js")
-  require("codemirror/addon/dialog/dialog.js")
-  require("codemirror/addon/dialog/dialog.css")
-  require("codemirror/addon/search/searchcursor.js")
-  require("codemirror/addon/search/search.js")
-  require("codemirror/keymap/sublime.js")
-  // foldGutter
-  require("codemirror/addon/fold/foldgutter.css")
-  require("codemirror/addon/fold/brace-fold.js")
-  require("codemirror/addon/fold/comment-fold.js")
-  require("codemirror/addon/fold/foldcode.js")
-  require("codemirror/addon/fold/foldgutter.js")
-  require("codemirror/addon/fold/indent-fold.js")
-  require("codemirror/addon/fold/markdown-fold.js")
-  require("codemirror/addon/fold/xml-fold.js")
-} catch (error) {}
+  let cloneDeepSelectMemroy = 'cloneDeep'
+  let debounceSelectMemroy = 'debounce'
+  let mergeKListsSelectMemroy = 'mergeKLists'
+  let findIntegersSelectMemroy = 'findIntegers'
 
-let cloneDeepSelectMemroy = "cloneDeep"
-let debounceSelectMemroy = "debounce"
-let mergeKListsSelectMemroy = "mergeKLists"
-let findIntegersSelectMemroy = "findIntegers"
-
-export default {
-  components: {
-    codemirror,
-  },
-  props: {
-    mode: {
-      type: String,
-      default: "",
+  export default {
+    components: {
+      codemirror,
     },
-  },
-  data() {
-    return {
-      code: "",
-      cmOptions: {
-        tabSize: 4,
-        styleActiveLine: false,
-        lineNumbers: true,
-        styleSelectedText: false,
-        line: true,
-        foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        highlightSelectionMatches: { showToken: /\w/, annotateScrollbar: true },
-        mode: "text/javascript",
-        // hint.js options
-        hintOptions: {
-          // 当匹配只有一项的时候是否自动补全
-          completeSingle: false,
-        },
-        //快捷键 可提供三种模式 sublime、emacs、vim
-        keyMap: "sublime",
-        matchBrackets: true,
-        showCursorWhenSelecting: true,
-        theme: "material",
-        extraKeys: { Ctrl: "autocomplete" },
+    props: {
+      mode: {
+        type: String,
+        default: '',
       },
-      resultText: [],
-      isCompute: false,
-      computTimer: null,
-      consoleColumns: [
-        { title: "Index", align: "center", dataIndex: "key", key: "key" },
-        { title: "Value", align: "center", dataIndex: "value", key: "value" },
-      ],
-    }
-  },
-  mounted() {
-    this.code = CodeMap[this.mode] || ""
-  },
-  methods: {
-    codeToggle(key, W, M) {
-      const expW = new RegExp(`${W}`, "g")
-      const expM = new RegExp(`${M}`, "g")
-      if (key === W) this.code = this.code.replace(expM, `${W}`)
-      else this.code = this.code.replace(expW, `${M}`)
     },
-    reduceSelect(e) {
-      const { key } = e
-      this.codeToggle(key, "reduce", "fakeReduce")
+    data() {
+      return {
+        code: '',
+        cmOptions: {
+          tabSize: 4,
+          styleActiveLine: false,
+          lineNumbers: true,
+          styleSelectedText: false,
+          line: true,
+          foldGutter: true,
+          gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+          highlightSelectionMatches: {
+            showToken: /\w/,
+            annotateScrollbar: true,
+          },
+          mode: 'text/javascript',
+          // hint.js options
+          hintOptions: {
+            // 当匹配只有一项的时候是否自动补全
+            completeSingle: false,
+          },
+          //快捷键 可提供三种模式 sublime、emacs、vim
+          keyMap: 'sublime',
+          matchBrackets: true,
+          showCursorWhenSelecting: true,
+          theme: 'material',
+          extraKeys: { Ctrl: 'autocomplete' },
+        },
+        resultText: [],
+        isCompute: false,
+        computTimer: null,
+        consoleColumns: [
+          { title: 'Index', align: 'center', dataIndex: 'key', key: 'key' },
+          { title: 'Value', align: 'center', dataIndex: 'value', key: 'value' },
+        ],
+      }
     },
-    promiseSelect(e) {
-      const { key } = e
-      this.codeToggle(key, "Promise", "FakePromise")
+    mounted() {
+      this.code = CodeMap[this.mode] || ''
     },
-    quickSortSelect(e) {
-      const { key } = e
-      this.codeToggle(key, "quickSort1", "quickSort2")
-    },
-    reverseSelect(e) {
-      const { key } = e
-      this.codeToggle(key, "reverse", "reverseString")
-    },
-    cloneDeepSelect(e) {
-      const { key } = e
-      this.codeToggle(key, cloneDeepSelectMemroy, key)
-      cloneDeepSelectMemroy = key
-    },
-    debounceSelect(e) {
-      const { key } = e
-      this.codeToggle(key, debounceSelectMemroy, key)
-      debounceSelectMemroy = key
-    },
-    mergeKListsSelect(e) {
-      const { key } = e
-      this.codeToggle(key, mergeKListsSelectMemroy, key)
-      mergeKListsSelectMemroy = key
-    },
-    findIntegersSelect(e) {
-      const { key } = e
-      this.codeToggle(key, findIntegersSelectMemroy, key)
-      findIntegersSelectMemroy = key
-    },
-    rotateRightSelect(e) {
-      const { key } = e
-      this.codeToggle(key, "rotateRight", "rotateRight_timeout")
-    },
-    run() {
-      clearTimeout(this.computTimer)
-      const that = this
-      this.isCompute = true
-      this.$nextTick().then(() => {
-        SWorker.run(() => "").then(async () => {
-          const FUN = await import("../js")
-          Object.keys(FUN).forEach((key) => {
-            window[key] = FUN[key]
+    methods: {
+      codeToggle(key, W, M) {
+        const expW = new RegExp(`${W}`, 'g')
+        const expM = new RegExp(`${M}`, 'g')
+        if (key === W) this.code = this.code.replace(expM, `${W}`)
+        else this.code = this.code.replace(expW, `${M}`)
+      },
+      reduceSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'reduce', 'fakeReduce')
+      },
+      promiseSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'Promise', 'FakePromise')
+      },
+      quickSortSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'quickSort1', 'quickSort2')
+      },
+      reverseSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'reverse', 'reverseString')
+      },
+      cloneDeepSelect(e) {
+        const { key } = e
+        this.codeToggle(key, cloneDeepSelectMemroy, key)
+        cloneDeepSelectMemroy = key
+      },
+      debounceSelect(e) {
+        const { key } = e
+        this.codeToggle(key, debounceSelectMemroy, key)
+        debounceSelectMemroy = key
+      },
+      mergeKListsSelect(e) {
+        const { key } = e
+        this.codeToggle(key, mergeKListsSelectMemroy, key)
+        mergeKListsSelectMemroy = key
+      },
+      findIntegersSelect(e) {
+        const { key } = e
+        this.codeToggle(key, findIntegersSelectMemroy, key)
+        findIntegersSelectMemroy = key
+      },
+      rotateRightSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'rotateRight', 'rotateRight_timeout')
+      },
+      strStrSelect(e) {
+        const { key } = e
+        this.codeToggle(key, 'strStr', 'strStr_KMP')
+      },
+      run() {
+        clearTimeout(this.computTimer)
+        const that = this
+        this.isCompute = true
+        this.$nextTick().then(() => {
+          SWorker.run(() => '').then(async () => {
+            const FUN = await import('../js')
+            Object.keys(FUN).forEach(key => {
+              window[key] = FUN[key]
+            })
+            console.clearLog()
+            console.watch(val => {
+              this.isCompute = false
+              try {
+                JSON.stringify(val)
+                this.resultText = val
+              } catch (error) {
+                this.resultText = val.map(item => {
+                  try {
+                    JSON.stringify(item)
+                  } catch (error) {
+                    item = String(item)
+                  }
+                  return item
+                })
+              }
+            })
+            eval(this.code)
           })
-          console.clearLog()
-          console.watch((val) => {
-            this.isCompute = false
-            try {
-              JSON.stringify(val)
-              this.resultText = val
-            } catch (error) {
-              this.resultText = val.map((item) => {
-                try {
-                  JSON.stringify(item)
-                } catch (error) {
-                  item = String(item)
-                }
-                return item
-              })
-            }
+        })
+      },
+      traverseData(data) {
+        return Object.keys(data).reduce((arr, key) => {
+          arr.push({
+            key,
+            value: JSON.stringify(data[key]),
           })
-          eval(this.code)
-        })
-      })
+          return arr
+        }, [])
+      },
     },
-    traverseData(data) {
-      return Object.keys(data).reduce((arr, key) => {
-        arr.push({
-          key,
-          value: JSON.stringify(data[key]),
-        })
-        return arr
-      }, [])
-    },
-  },
-  watch: {},
-}
+    watch: {},
+  }
 </script>
 
 <style lang="scss" scoped>
-body {
-  font-size: 14px !important;
-}
-.m-t-10 {
-  margin-top: 10px;
-}
-.codemirror_con {
-  margin-top: 15px;
-  .result_con {
-    height: 300px;
-    overflow-y: auto;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    box-sizing: border-box;
-    padding: 14px;
-    position: relative;
-    box-shadow: 0 0 2px 2px #e0e0e0;
+  body {
+    font-size: 14px !important;
   }
-}
-.select_wraper {
-  display: flex;
-  align-items: center;
-}
-.tip {
-  margin-top: 10px;
-  display: flex;
-  font-size: 14px;
-  color: #999;
-  align-items: center;
-}
+  .m-t-10 {
+    margin-top: 10px;
+  }
+  .codemirror_con {
+    margin-top: 15px;
+    .result_con {
+      height: 300px;
+      overflow-y: auto;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      box-sizing: border-box;
+      padding: 14px;
+      position: relative;
+      box-shadow: 0 0 2px 2px #e0e0e0;
+    }
+  }
+  .select_wraper {
+    display: flex;
+    align-items: center;
+  }
+  .tip {
+    margin-top: 10px;
+    display: flex;
+    font-size: 14px;
+    color: #999;
+    align-items: center;
+  }
 </style>
