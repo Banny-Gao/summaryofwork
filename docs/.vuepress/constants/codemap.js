@@ -389,6 +389,7 @@ fetch('https://summaryofwork-1258044298.cos.ap-chengdu.myqcloud.com/public/txt/b
 testBSTSearch()
   `,
   stoneGame: `console.log(stoneGame([5,3,4,5]))`,
+  strStr: `console.log(strStr('abcabde', 'abd'))`
 }
 
 export default codemap

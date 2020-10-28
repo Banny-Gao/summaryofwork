@@ -4,6 +4,7 @@
 <!-- <KnowledgeTree direction="H" type="mindmap" :collapsedLevel='2'/> -->
 
 <MarkdownCard>
+
 **动态规划**  
 
 - 一般形式： 求最值
@@ -22,4 +23,14 @@ for 状态1 in 状态1的所有取值：
         for ...
             dp[状态1][状态2][...] = 求最值(选择1，选择2...)
 ```
+
+**KMP**
+
+- 寻找前缀后缀最长公共元素长度
+- 求next数组
+- 根据next数组进行匹配
+
+[KMP详解]((https://www.cnblogs.com/zhangtianq/p/5839909.html))
+[解学武KMP](http://data.biancheng.net/view/180.html)
+
 </MarkdownCard>

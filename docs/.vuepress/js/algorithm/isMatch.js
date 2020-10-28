@@ -6,13 +6,13 @@ export const isMatch = (s, p) => {
     const np = p.substr(0, j - 1)
     let match = map.get(`${ns}, ${np}`)
     if (match === undefined) {
-      match = matchs(i, j - 2)
+      match = matches(i, j - 2)
       map.set(`${ns}, ${np}`, match)
     }
     return match
   }
 
-  const matchs = (i, j) => {
+  const matches = (i, j) => {
     if (!(i + 1) && !(j + 1)) return true
   
     while (j >= 0) {
@@ -51,5 +51,5 @@ export const isMatch = (s, p) => {
     return i === j
   }
 
-  return matchs(s.length - 1, p.length - 1)
+  return matches(s.length - 1, p.length - 1)
 }

@@ -137,4 +137,9 @@ export default [
     y: 755.0778012349141,
     path: "/algorithm/stoneGame.html",
   },
+  {
+    x: "IndexOf(KMP字符串搜索)",
+    y: 825.0778012349141,
+    path: "/algorithm/strStr.html",
+  },
 ]
