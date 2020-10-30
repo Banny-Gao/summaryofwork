@@ -142,4 +142,9 @@ export default [
     y: 825.0778012349141,
     path: "/algorithm/strStr.html",
   },
+  {
+    x: "四键键盘",
+    y: 321.0778012349141,
+    path: "/algorithm/fourKey.html",
+  },
 ]
