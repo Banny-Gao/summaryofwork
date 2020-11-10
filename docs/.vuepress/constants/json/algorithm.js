@@ -192,5 +192,20 @@ export default {
       path: "/algorithm/stoneGame.html",
       level: 1,
     },
+    {
+      id: "IndexOf(KMP字符串搜索)",
+      path: "/algorithm/strStr.html",
+      level: 1,
+    },
+    {
+      id: "四键键盘",
+      path: "/algorithm/fourKey.html",
+      level: 1,
+    },
+    {
+      id: "编辑距离",
+      path: "/algorithm/minDistance.html",
+      level: 1,
+    },
   ],
 }

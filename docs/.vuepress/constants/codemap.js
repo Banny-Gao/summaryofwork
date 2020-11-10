@@ -391,6 +391,7 @@ testBSTSearch()
   stoneGame: `console.log(stoneGame([5,3,4,5]))`,
   strStr: `console.log(strStr('abcabde', 'abd'))`,
   fourKey: `console.log(fourKey(7))`,
+  minDistance: `console.log(minDistance('abcdef', 'accde'))`
 }
 
 export default codemap

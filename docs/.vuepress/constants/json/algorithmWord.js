@@ -147,4 +147,9 @@ export default [
     y: 321.0778012349141,
     path: "/algorithm/fourKey.html",
   },
+  {
+    x: "编辑距离",
+    y: 321.0778012349141,
+    path: "/algorithm/minDistance.html",
+  },
 ]
