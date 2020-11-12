@@ -1,4 +1,4 @@
-const codemap = {
+export default {
   reduce: `console.time();
 const arr = (function(){
   let a = []
@@ -391,7 +391,6 @@ testBSTSearch()
   stoneGame: `console.log(stoneGame([5,3,4,5]))`,
   strStr: `console.log(strStr('abcabde', 'abd'))`,
   fourKey: `console.log(fourKey(7))`,
-  minDistance: `console.log(minDistance('abcdef', 'accde'))`
+  minDistance: `console.log(minDistance('abcdef', 'accde'))`,
+  superEggDrop: `console.log(superEggDrop(3, 14))`
 }
-
-export default codemap

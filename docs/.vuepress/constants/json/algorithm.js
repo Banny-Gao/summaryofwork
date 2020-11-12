@@ -207,5 +207,10 @@ export default {
       path: "/algorithm/minDistance.html",
       level: 1,
     },
+    {
+      id: "高楼抛鸡蛋",
+      path: "/algorithm/superEggDrop.html",
+      level: 1,
+    },
   ],
 }

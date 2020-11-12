@@ -1,4 +1,4 @@
-# 实现 strStr() 函数。
+# 高楼抛鸡蛋
 
 - 你将获得 K 个鸡蛋，并可以使用一栋从 1 到 N  共有 N 层楼的建筑。
 - 每个蛋的功能都是一样的，如果一个蛋碎了，你就不能再把它掉下去。
@@ -97,11 +97,44 @@ export const superEggDrop = (K, N) => {
 
 ## 数学法(动态规划)
 
-$f(T,K)=1+f(T−1,K−1)+f(T−1,K)$
-- 当 T ≥ 1 的时候 f(T, 1) = Tf(T,1) = T
-- 当 K ≥ 1 时，f(1, K) = 1f(1,K)=1。
+- 逆向思维： 不考虑鸡蛋是在哪层抛下，只考虑抛下后的状态与楼层，且最后都能找到确切楼层。在T层抛下，
+  - 用f(T, K)表示K个鸡蛋在T次抛出后能求得的最高楼层
+  - 若鸡蛋碎掉，则T层下可以有f(T - 1, K - 1)层
+  - 若鸡蛋没碎，则T层上可以有f(T - 1, K)层
+
+- 所以可以求得动态方程： <img src="https://latex.codecogs.com/gif.latex?f(T,&space;K)&space;=&space;1&space;&plus;&space;f(T&space;-&space;1,&space;K&space;-&space;1)&space;&plus;&space;f(T&space;-&space;1,&space;K)" title="f(T, K) = 1 + f(T - 1, K - 1) + f(T - 1, K)" />
+  
+- T <= N
+- 当 T ≥ 1 的时候 f(T, 1) = T, 一个鸡蛋T次抛出后最多能在T层
+- 当 K ≥ 1 时，f(1, K) = 1, 不论多少个鸡蛋只抛一次，最多能求得1层为满足条件的最高层
 
 ```js
+export const superEggDrop_Math = (K, N) => {
+  if (N === 1) return 1
+
+  const dp = Array(N + 1)
+    .fill(0)
+    .map(() => Array(K + 1).fill(0))
+
+  for (let i = 1; i <= K; i++) {
+    dp[1][i] = 1 // 只有一层是只需要抛1次就可以确定
+  }
+
+  let res
+  for (let t = 2; t <= N; t++) {
+    // 从第二层开始抛,
+    for (let k = 1; k <= K; k++) {
+      dp[t][k] = 1 + dp[t - 1][k] + dp[t - 1][k - 1]
+    }
+    if (dp[t][K] >= N) {
+      // t次抛出K枚鸡蛋已经到了N层
+      res = t
+      break
+    }
+  }
+
+  return res
+}
 ```
 
 

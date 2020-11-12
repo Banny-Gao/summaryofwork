@@ -56,5 +56,29 @@ export const superEggDrop = (K, N) => {
   return getDP(K, N)
 }
 
+export const superEggDrop_Math = (K, N) => {
+  if (N === 1) return 1
 
-const superEggDrop_Math = (K, N) => {}
+  const dp = Array(N + 1)
+    .fill(0)
+    .map(() => Array(K + 1).fill(0))
+
+  for (let i = 1; i <= K; i++) {
+    dp[1][i] = 1 // 只有一层是只需要抛1次就可以确定
+  }
+
+  let res
+  for (let t = 2; t <= N; t++) {
+    // 从第二层开始抛,
+    for (let k = 1; k <= K; k++) {
+      dp[t][k] = 1 + dp[t - 1][k] + dp[t - 1][k - 1]
+    }
+    if (dp[t][K] >= N) {
+      // t次抛出K枚鸡蛋已经到了N层
+      res = t
+      break
+    }
+  }
+
+  return res
+}

@@ -152,4 +152,9 @@ export default [
     y: 321.0778012349141,
     path: "/algorithm/minDistance.html",
   },
+  {
+    x: "高楼抛鸡蛋",
+    y: 521.0778012349141,
+    path: "/algorithm/superEggDrop.html",
+  },
 ]
