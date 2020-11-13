@@ -212,5 +212,10 @@ export default {
       path: "/algorithm/superEggDrop.html",
       level: 1,
     },
+    {
+      id: "打家劫舍 II",
+      path: "/algorithm/rob.html",
+      level: 1,
+    },
   ],
 }

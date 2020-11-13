@@ -392,5 +392,6 @@ testBSTSearch()
   strStr: `console.log(strStr('abcabde', 'abd'))`,
   fourKey: `console.log(fourKey(7))`,
   minDistance: `console.log(minDistance('abcdef', 'accde'))`,
-  superEggDrop: `console.log(superEggDrop(3, 14))`
+  superEggDrop: `console.log(superEggDrop(3, 14))`,
+  rob: `console.log(rob([1, 2, 3, 1]))`,
 }
