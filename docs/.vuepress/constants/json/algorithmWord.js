@@ -157,4 +157,9 @@ export default [
     y: 521.0778012349141,
     path: "/algorithm/superEggDrop.html",
   },
+  {
+    x: "打家劫舍 II",
+    y: 421.0778012349141,
+    path: "/algorithm/rob.html",
+  },
 ]
