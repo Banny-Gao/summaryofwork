@@ -66,6 +66,8 @@ export default {
 
     this.collections = collections
     sessionStorage.setItem("collections", JSON.stringify(collections))
+
+    this.$emit('getData', collections)
   },
 }
 </script>

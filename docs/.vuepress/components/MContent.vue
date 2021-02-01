@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref='mContainer'>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     } else {
       result = md.render(this.content);
     }
-    this.$el.innerHTML = result;
+    this.$refs.mContainer.innerHTML = result;
   }
 };
 </script>

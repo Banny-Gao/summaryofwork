@@ -1,3 +1,10 @@
+.radio-container
+  display flex
+  justify-content  center
+.charts-container
+  width 80%
+  margin 1rem auto
+
 .columns-layout
     display flex
     width 100%
@@ -5,3 +12,11 @@
       flex 1
       box-sizing border-box
       padding 0 2rem
+  
+    @media (max-width: 419px) {
+      flex-direction column-reverse
+      .columns-item-container {
+          padding 0
+      }  
+    }
+    

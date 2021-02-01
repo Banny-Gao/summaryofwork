@@ -107,6 +107,9 @@ export default {
 
     this.categoryStars = categoryStars
     sessionStorage.setItem("categoryStars", JSON.stringify(categoryStars))
+
+    
+    this.$emit('getData', categoryStars)
   },
 }
 </script>

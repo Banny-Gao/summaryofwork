@@ -69,12 +69,20 @@ export const superEggDrop = (K, N) => {
       dp[k][n] = n
       return n
     }
+    
 
     let res = Infinity,
       low = 1,
       high = n
 
-    while (low <= high) {
+    // let m = n             // 暴力超时
+    // while (m >= 1) {
+    //   res = Math.min(res, Math.max(getDP(k - 1, m - 1) + 1, getDP(k, n - m) + 1))
+	  //   m--
+    // }
+
+
+    while (low <= high) {      // 二分优化
       const mid = (low + high) >> 1
       const t1 = getDP(k - 1, mid - 1) // 碎
       const t2 = getDP(k, n - mid) // 没碎
