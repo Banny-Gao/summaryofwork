@@ -1,31 +1,43 @@
 <template>
   <div class="columns-layout">
     <div class="columns-item-container">
-      <a-collapse accordion v-if="chartType === 'Stars'">
-        <a-collapse-panel v-for="item of categoryStars" :header="item.language" :key="item.language">
-          <a-timeline>
-            <a-timeline-item 
+      <a-skeleton 
+        :loading="!categoryStars.length" 
+        v-if="chartType === 'Stars'"
+        :paragraph="{ rows: 20, width: '100%'}"
+        :title="false"
+      >
+        <a-collapse accordion>
+          <a-collapse-panel v-for="item of categoryStars" :header="item.language" :key="item.language">
+              <a-timeline>
+                <a-timeline-item 
+                  v-for="(child, index) in item.children" :key="index"
+                >
+                  <MContent :content='getStartStatsUrl(child)'
+                  />
+                </a-timeline-item>
+              </a-timeline>
+          </a-collapse-panel>
+        </a-collapse>
+      </a-skeleton>
+      <a-skeleton 
+        :loading="!collections.length" 
+        v-else
+        :title="false"
+        :paragraph="{ rows: 20, width: '100%' }"
+      >
+        <a-collapse accordion>
+          <a-collapse-panel v-for="item of collections" :header="item.name" :key="item.key">
+            <a-tag 
               v-for="(child, index) in item.children" :key="index"
+              :color="getColors()"
+              class="collection-tag"
             >
-              <MContent :content='getStartStatsUrl(child)'
-              />
-            </a-timeline-item>
-          </a-timeline>
-        </a-collapse-panel>
-      </a-collapse>
-
-      <a-collapse accordion v-else>
-        <a-collapse-panel v-for="item of collections" :header="item.name" :key="item.key">
-          <a-tag 
-            v-for="(child, index) in item.children" :key="index"
-            :link="child.url"
-            :color="getColors()"
-            class="collection-tag"
-          >
-            {{child.name}}
-          </a-tag>
-        </a-collapse-panel>
-      </a-collapse>
+              <a :href="child.url" target="_blank">{{child.name}}</a>
+            </a-tag>
+          </a-collapse-panel>
+        </a-collapse>
+      </a-skeleton>
     </div>
     <div class="columns-item-container">
       <div class="radio-container">
