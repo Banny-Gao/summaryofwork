@@ -394,4 +394,11 @@ testBSTSearch()
   minDistance: `console.log(minDistance('abcdef', 'accde'))`,
   superEggDrop: `console.log(superEggDrop(3, 14))`,
   rob: `console.log(rob([1, 2, 3, 1]))`,
+  CQueue: `const obj = new CQueue()
+  console.log(
+    obj.appendTail(3),
+    obj.deleteHead(),
+    obj.deleteHead(),
+  )
+  `,
 }
