@@ -401,4 +401,14 @@ testBSTSearch()
     obj.deleteHead(),
   )
   `,
+  MinStack: `
+  MinStack minStack = new MinStack();
+  minStack.push(-2);
+  minStack.push(0);
+  minStack.push(-3);
+  console.log(minStack.min());
+  minStack.pop();
+  console.log(minStack.top());     
+  console.log(minStack.min()); 
+  `,
 }

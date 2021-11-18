@@ -11,11 +11,6 @@
 输出：[null,null,3,-1]
 ```
 
-**说明**  
-你可以认为每种硬币的数量是无限的。
-
-## 动态规划
-
 ```javascript
 class CQueue {
   constructor() {
