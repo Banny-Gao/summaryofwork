@@ -31,7 +31,7 @@
     "gitalk": "^1.5.0",
     "insert-css": "^2.0.0",
     "katex": "0.6",
-    "markdown-it": "^8.4.1",
+    "markdown-it": "^12.3.2",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-katex": "^2.0.3",
     "node-emoji": "^1.10.0",
